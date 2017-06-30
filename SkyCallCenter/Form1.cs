@@ -159,11 +159,23 @@ namespace BatRecording
         {
             MessageBox.Show("Hotkey pressed!");
         }
+        private Keys GetKey(IntPtr LParam)
+        {
+            return (Keys)((LParam.ToInt32()) >> 16);
+        }
+
 
         protected override void WndProc(ref Message m)
         {
             if (m.Msg == Hotkeys.Constants.WM_HOTKEY_MSG_ID)
-                HandleHotkey();
+            {
+                switch (GetKey(m.LParam))
+                {
+                    case Keys.D:
+                        HandleHotkey();
+                        break;
+                }
+            }
             base.WndProc(ref m);
         }
     }
