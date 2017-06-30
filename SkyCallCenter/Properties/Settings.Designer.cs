@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SkyCallCenter.Properties
+namespace BatRecording.Properties
 {
 
 

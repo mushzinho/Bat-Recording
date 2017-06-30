@@ -3,6 +3,7 @@ using CSCore.Codecs.WAV;
 using CSCore.CoreAudioAPI;
 using CSCore.SoundIn;
 using CSCore.Streams;
+using Hotkeys;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SkyCallCenter
+namespace BatRecording
 {
     public partial class Form1 : Form
     {
@@ -22,15 +23,21 @@ namespace SkyCallCenter
         private WasapiCapture soundIn;
         private IWriteable writer;
         private IWaveSource waveSource;
+        private GlobalHotKey ghk;
 
         public Form1()
         {
             InitializeComponent();
+            this.KeyPreview = true;
+            this.ghk = new GlobalHotKey(Constants.SHIFT, Keys.D , this);
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            if (this.ghk.Register()) {
+                MessageBox.Show("Tecla Registrada");
+            }
         }
 
         private void Record_Click(object sender, EventArgs events)
@@ -116,6 +123,7 @@ namespace SkyCallCenter
                 this.NotifycationIcon.BalloonTipIcon = ToolTipIcon.Info;
                 this.NotifycationIcon.ShowBalloonTip(1000);
                 this.Hide();
+
             }else if(this.WindowState == FormWindowState.Normal)
             {
                 this.NotifycationIcon.Visible = false;
@@ -126,6 +134,37 @@ namespace SkyCallCenter
         {
             this.Show();
             this.WindowState = FormWindowState.Normal;
+            
+        }
+
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.F2)
+            {
+                MessageBox.Show("Detected");
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void mainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!ghk.Unregiser())
+                MessageBox.Show("Hotkey failed to unregister!");
+
+        }
+
+        private void HandleHotkey()
+        {
+            MessageBox.Show("Hotkey pressed!");
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == Hotkeys.Constants.WM_HOTKEY_MSG_ID)
+                HandleHotkey();
+            base.WndProc(ref m);
         }
     }
 }
