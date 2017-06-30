@@ -1,0 +1,11 @@
+c:\users\pablo\documents\visual studio 2015\Projects\SkyCallCenter\SkyCallCenter\bin\Debug\SkyCallCenter.exe.config
+C:\Users\Pablo\documents\visual studio 2015\Projects\SkyCallCenter\SkyCallCenter\bin\Debug\SkyCallCenter.exe
+C:\Users\Pablo\documents\visual studio 2015\Projects\SkyCallCenter\SkyCallCenter\bin\Debug\SkyCallCenter.pdb
+C:\Users\Pablo\documents\visual studio 2015\Projects\SkyCallCenter\SkyCallCenter\bin\Debug\CSCore.dll
+C:\Users\Pablo\documents\visual studio 2015\Projects\SkyCallCenter\SkyCallCenter\bin\Debug\CSCore.xml
+C:\Users\Pablo\documents\visual studio 2015\Projects\SkyCallCenter\SkyCallCenter\obj\Debug\SkyCallCenter.csprojResolveAssemblyReference.cache
+C:\Users\Pablo\documents\visual studio 2015\Projects\SkyCallCenter\SkyCallCenter\obj\Debug\SkyCallCenter.Form1.resources
+C:\Users\Pablo\documents\visual studio 2015\Projects\SkyCallCenter\SkyCallCenter\obj\Debug\SkyCallCenter.Properties.Resources.resources
+C:\Users\Pablo\documents\visual studio 2015\Projects\SkyCallCenter\SkyCallCenter\obj\Debug\SkyCallCenter.csproj.GenerateResource.Cache
+C:\Users\Pablo\documents\visual studio 2015\Projects\SkyCallCenter\SkyCallCenter\obj\Debug\SkyCallCenter.exe
+C:\Users\Pablo\documents\visual studio 2015\Projects\SkyCallCenter\SkyCallCenter\obj\Debug\SkyCallCenter.pdb
