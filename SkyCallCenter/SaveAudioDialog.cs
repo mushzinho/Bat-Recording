@@ -58,14 +58,14 @@ namespace SkyCallCenter
                 var finalTime = DateTime.Now.ToString("HHmm");
 
                 var outFileName = clienteName + "_" +clienteCPF + "_" + finalTime + ".mp3";
-                convertWithFFMPEG(this.operatorBaseUrl + Path.AltDirectorySeparatorChar + outFileName);
+                convertWithFFMPEG("out.wav", this.operatorBaseUrl + Path.AltDirectorySeparatorChar + outFileName);
                 //File.Move(outFileName, this.operatorBaseUrl + Path.AltDirectorySeparatorChar + outFileName);
             }
         }
-        public void convertWithFFMPEG(string outputFileName)
+        public void convertWithFFMPEG(string inputFile, string outputFileName)
         {
             var ffmpeg = new NReco.VideoConverter.FFMpegConverter();
-            ffmpeg.ConvertMedia("out.wav", outputFileName, NReco.VideoConverter.Format.mpeg);
+            ffmpeg.ConvertMedia(inputFile, outputFileName, NReco.VideoConverter.Format.mpeg);
         }
 
     }
