@@ -9,3 +9,4 @@ C:\Users\Pablo\documents\visual studio 2015\Projects\SkyCallCenter\SkyCallCenter
 C:\Users\Pablo\documents\visual studio 2015\Projects\SkyCallCenter\SkyCallCenter\obj\Debug\SkyCallCenter.exe
 C:\Users\Pablo\documents\visual studio 2015\Projects\SkyCallCenter\SkyCallCenter\obj\Debug\SkyCallCenter.pdb
 C:\Users\Pablo\Documents\Visual Studio 2015\Projects\SkyCallCenter\SkyCallCenter\obj\Debug\BatRecording.Form1.resources
+C:\Users\Pablo\documents\visual studio 2015\Projects\SkyCallCenter\SkyCallCenter\obj\Debug\SkyCallCenter.SaveAudioDialog.resources

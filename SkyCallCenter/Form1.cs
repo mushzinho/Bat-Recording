@@ -4,12 +4,14 @@ using CSCore.CoreAudioAPI;
 using CSCore.SoundIn;
 using CSCore.Streams;
 using Hotkeys;
+using SkyCallCenter;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,8 +37,8 @@ namespace BatRecording
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (this.ghk.Register()) {
-                MessageBox.Show("Tecla Registrada");
+            if (!this.ghk.Register()) {
+                throw new Exception("Não foi possivel registrar o atalho de escopo global");
             }
         }
 
@@ -46,19 +48,10 @@ namespace BatRecording
             if (!this.recording)
             {
 
-                SaveFileDialog sfd = new SaveFileDialog
-                {
-                    Filter = "WAV (*.wav)|*.wav",
-                    Title = "Save",
-                    FileName = String.Empty
-                };
-                if (sfd.ShowDialog(this) == DialogResult.OK)
-                {
-                    StartCapture(sfd.FileName);
-                    this.statusTextBox.Text = "Gravando.";
-                    this.RecordButton.Text = "Parar";
-                    this.recording = true;
-                }
+                StartCapture("out.wav");
+                this.statusTextBox.Text = "Gravando.";
+                this.RecordButton.Text = "Parar";
+                this.recording = true;
 
             }
             else
@@ -67,6 +60,38 @@ namespace BatRecording
                 this.statusTextBox.Text = "Não está gravando.";
                 this.RecordButton.Text = "Gravar";
                 this.recording = false;
+                var saveRecord = MessageBox.Show("Deseja salvar essa gravação?", "Salvar gravação", MessageBoxButtons.YesNo);
+                
+                if(saveRecord == DialogResult.Yes)
+                {
+                    SaveAudioDialog saveAudio = new SaveAudioDialog();
+                    if(saveAudio.ShowDialog(this) == DialogResult.OK)
+                    {
+                        MessageBox.Show("Agora");
+                    }
+                    saveAudio.Dispose();
+
+                }else
+                {
+                    var deleteRecord = MessageBox.Show("Tem certeza que deseja apagar a gravação? \nEssa ação não pode ser desfeita.", "Apagar gravação ?", MessageBoxButtons.YesNo);
+                    if(deleteRecord == DialogResult.OK)
+                    {
+                        if (File.Exists(@"out.wav"))
+                        {
+                            File.Delete(@"out.wav");
+                        }
+                    }else
+                    {
+                        SaveAudioDialog saveAudio = new SaveAudioDialog();
+                        if (saveAudio.ShowDialog(this) == DialogResult.OK)
+                        {
+                            MessageBox.Show("Agora");
+                        }
+                        saveAudio.Dispose();
+                    }
+
+                }
+
             }
 
 
@@ -81,8 +106,6 @@ namespace BatRecording
 
             this.soundIn.Initialize();
             var soundInSource = new SoundInSource(this.soundIn) { FillWithZeros = false };
-            //var singleBlockNotificationStream = new SingleBlockNotificationStream(soundInSource.ToSampleSource());
-            //this.waveSource = singleBlockNotificationStream.ToWaveSource();
             this.waveSource = soundInSource.ToSampleSource().ToWaveSource();
             this.writer = new WaveWriter(fileName, this.waveSource.WaveFormat);
 
@@ -95,8 +118,6 @@ namespace BatRecording
             };
 
             soundIn.Start();
-
-
         }
 
         private void StopCapture()
