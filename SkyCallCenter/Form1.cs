@@ -4,7 +4,7 @@ using CSCore.CoreAudioAPI;
 using CSCore.SoundIn;
 using CSCore.Streams;
 using Hotkeys;
-using SkyCallCenter;
+using BatRecording;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,7 +31,7 @@ namespace BatRecording
         {
             InitializeComponent();
             this.KeyPreview = true;
-            this.ghk = new GlobalHotKey(Constants.SHIFT, Keys.D , this);
+            this.ghk = new GlobalHotKey(Constants.SHIFT + Constants.CTRL, Keys.K , this);
 
         }
 
@@ -60,41 +60,46 @@ namespace BatRecording
                 this.statusTextBox.Text = "Não está gravando.";
                 this.RecordButton.Text = "Gravar";
                 this.recording = false;
-                var saveRecord = MessageBox.Show("Deseja salvar essa gravação?", "Salvar gravação", MessageBoxButtons.YesNo);
-                
-                if(saveRecord == DialogResult.Yes)
+                saveFileRecord();
+
+            }
+
+        }
+        private void saveFileRecord()
+        {
+            var saveRecord = MessageBox.Show("Deseja salvar essa gravação?", "Salvar gravação", MessageBoxButtons.YesNo);
+
+            if (saveRecord == DialogResult.Yes)
+            {
+                SaveAudioDialog saveAudio = new SaveAudioDialog();
+                if (saveAudio.ShowDialog(this) == DialogResult.OK)
+                {
+                    MessageBox.Show("Agora");
+                }
+                saveAudio.Dispose();
+
+            }
+            else
+            {
+                var deleteRecord = MessageBox.Show("Tem certeza que deseja apagar a gravação? \nEssa ação não pode ser desfeita.", "Apagar gravação ?", MessageBoxButtons.YesNo);
+                if (deleteRecord == DialogResult.Yes)
+                {
+                    if (File.Exists(@"out.wav"))
+                    {
+                        File.Delete(@"out.wav");
+                    }
+                }
+                else
                 {
                     SaveAudioDialog saveAudio = new SaveAudioDialog();
-                    if(saveAudio.ShowDialog(this) == DialogResult.OK)
+                    if (saveAudio.ShowDialog(this) == DialogResult.OK)
                     {
                         MessageBox.Show("Agora");
                     }
                     saveAudio.Dispose();
-
-                }else
-                {
-                    var deleteRecord = MessageBox.Show("Tem certeza que deseja apagar a gravação? \nEssa ação não pode ser desfeita.", "Apagar gravação ?", MessageBoxButtons.YesNo);
-                    if(deleteRecord == DialogResult.Yes)
-                    {
-                        if (File.Exists(@"out.wav"))
-                        {
-                            File.Delete(@"out.wav");
-                        }
-                    }else
-                    {
-                        SaveAudioDialog saveAudio = new SaveAudioDialog();
-                        if (saveAudio.ShowDialog(this) == DialogResult.OK)
-                        {
-                            MessageBox.Show("Agora");
-                        }
-                        saveAudio.Dispose();
-                    }
-
                 }
 
             }
-
-
         }
 
         private void StartCapture(string fileName)
@@ -139,8 +144,8 @@ namespace BatRecording
             if(this.WindowState == FormWindowState.Minimized)
             {
                 this.NotifycationIcon.Visible = true;
-                this.NotifycationIcon.BalloonTipTitle = "BatMorcego Avisa";
-                this.NotifycationIcon.BalloonTipText = "Continuo funcionando \n Para Gravar";
+                this.NotifycationIcon.BalloonTipTitle = "Bat Recording";
+                this.NotifycationIcon.BalloonTipText = "Minimizado \nPara Gravar Pressione CTRL+ SHIT + K";
                 this.NotifycationIcon.BalloonTipIcon = ToolTipIcon.Info;
                 this.NotifycationIcon.ShowBalloonTip(1000);
                 this.Hide();
@@ -159,16 +164,6 @@ namespace BatRecording
         }
 
 
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            if (keyData == Keys.F2)
-            {
-                MessageBox.Show("Detected");
-                return true;
-            }
-            return base.ProcessCmdKey(ref msg, keyData);
-        }
-
         private void mainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!ghk.Unregiser())
@@ -176,15 +171,22 @@ namespace BatRecording
 
         }
 
-        private void HandleHotkey()
+        private void StartRecording()
         {
-            MessageBox.Show("Hotkey pressed!");
+            this.WindowState = FormWindowState.Minimized;
+            this.NotifycationIcon.Visible = true;
+            this.NotifycationIcon.BalloonTipTitle = "Bat Recording";
+            this.NotifycationIcon.BalloonTipText = "Gravando \nPara parar Pressione CTRL+ SHIT + P";
+            this.NotifycationIcon.BalloonTipIcon = ToolTipIcon.Info;
+            this.NotifycationIcon.ShowBalloonTip(2000);
+            this.Hide();
+            StartCapture("out.wav");
         }
+
         private Keys GetKey(IntPtr LParam)
         {
             return (Keys)((LParam.ToInt32()) >> 16);
         }
-
 
         protected override void WndProc(ref Message m)
         {
@@ -192,8 +194,10 @@ namespace BatRecording
             {
                 switch (GetKey(m.LParam))
                 {
-                    case Keys.D:
-                        HandleHotkey();
+                    case Keys.K:
+                        StartRecording();
+                        break;
+                    case Keys.P:
                         break;
                 }
             }

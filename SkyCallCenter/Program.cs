@@ -1,4 +1,4 @@
-﻿using SkyCallCenter;
+﻿using BatRecording;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +17,7 @@ namespace BatRecording
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SaveAudioDialog());
+            Application.Run(new Form1());
         }
     }
 }

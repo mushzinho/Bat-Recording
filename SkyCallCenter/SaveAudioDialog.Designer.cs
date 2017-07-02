@@ -1,4 +1,4 @@
-﻿namespace SkyCallCenter
+﻿namespace BatRecording
 {
     partial class SaveAudioDialog
     {
