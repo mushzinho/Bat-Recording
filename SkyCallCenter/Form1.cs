@@ -74,7 +74,7 @@ namespace BatRecording
                 }else
                 {
                     var deleteRecord = MessageBox.Show("Tem certeza que deseja apagar a gravação? \nEssa ação não pode ser desfeita.", "Apagar gravação ?", MessageBoxButtons.YesNo);
-                    if(deleteRecord == DialogResult.OK)
+                    if(deleteRecord == DialogResult.Yes)
                     {
                         if (File.Exists(@"out.wav"))
                         {
