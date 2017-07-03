@@ -16,6 +16,7 @@ namespace BatRecording
         private string baseURL  = "";
         private string operatorBaseUrl;
         private string operatorName = "pablo";
+        public string OutFileNameComplete;
         public SaveAudioDialog()
         {
             InitializeComponent();
@@ -42,13 +43,13 @@ namespace BatRecording
             if (! (TextBoxClienteName.Text.Length > 5) )
             {
                 allValid = false;
-                MessageBox.Show("Digite o nome do cliente completo.");
+                MessageBox.Show(@"Digite o nome do cliente completo.");
             }
 
             if (TextBoxCPF.Text.Length != 11 )
             {
                 allValid = false;
-                MessageBox.Show("Digite o CPF do cliente sem números.");
+                MessageBox.Show(@"Digite o CPF do cliente sem números.");
             }
             if (allValid)
             {
@@ -58,9 +59,11 @@ namespace BatRecording
                 var finalTime = DateTime.Now.ToString("HHmmss");
 
                 var outFileName = clienteName + "_" +clienteCpf + "_" + finalTime + ".mp3";
-                ConvertWithFfmpeg("out.wav", this.operatorBaseUrl + Path.AltDirectorySeparatorChar + outFileName);
-                MessageBox.Show("Gravação salva com sucesso.");
+                this.OutFileNameComplete = this.operatorBaseUrl + Path.AltDirectorySeparatorChar + outFileName;
+                ConvertWithFfmpeg("out.wav", this.OutFileNameComplete);
+                MessageBox.Show(@"Gravação salva com sucesso.");
                 this.DialogResult = DialogResult.OK;
+                this.Close();
             }
         }
         public void ConvertWithFfmpeg(string inputFile, string outputFileName)
@@ -71,3 +74,4 @@ namespace BatRecording
 
     }
 }
+

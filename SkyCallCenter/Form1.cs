@@ -48,13 +48,13 @@ namespace BatRecording
         {
             if (!this.recording)
             {
-                this.statusTextBox.Text = "Gravando.";
-                this.RecordButton.Text = "Parar";
+                this.statusTextBox.Text = @"Gravando.";
+                this.RecordButton.Text = @"Parar";
                 this.recording = true;
             }else
             {
-                this.statusTextBox.Text = "Não está gravando.";
-                this.RecordButton.Text = "Gravar";
+                this.statusTextBox.Text = @"Não está gravando.";
+                this.RecordButton.Text = @"Gravar";
                 this.recording = false;
             }
         }
@@ -80,21 +80,22 @@ namespace BatRecording
         }
         private void SaveFileRecorded()
         {
-            var saveRecord = MessageBox.Show("Deseja salvar essa gravação?", "Salvar gravação", MessageBoxButtons.YesNo);
+            var saveRecord = MessageBox.Show(@"Deseja salvar essa gravação?", @"Salvar gravação", MessageBoxButtons.YesNo);
 
             if (saveRecord == DialogResult.Yes)
             {
                 SaveAudioDialog saveAudio = new SaveAudioDialog();
                 if (saveAudio.ShowDialog(this) == DialogResult.OK)
                 {
-                    MessageBox.Show("Agora");
+                    MessageBox.Show(saveAudio.OutFileNameComplete);
                 }
                 saveAudio.Dispose();
 
             }
             else
             {
-                var deleteRecord = MessageBox.Show("Tem certeza que deseja apagar a gravação? \nEssa ação não pode ser desfeita.", "Apagar gravação ?", MessageBoxButtons.YesNo);
+                var deleteRecord = MessageBox.Show(@"Tem certeza que deseja apagar a gravação? 
+Essa ação não pode ser desfeita.", @"Apagar gravação ?", MessageBoxButtons.YesNo);
                 if (deleteRecord == DialogResult.Yes)
                 {
                     if (File.Exists(@"out.wav"))
@@ -107,7 +108,7 @@ namespace BatRecording
                     SaveAudioDialog saveAudio = new SaveAudioDialog();
                     if (saveAudio.ShowDialog(this) == DialogResult.OK)
                     {
-                        MessageBox.Show("Agora");
+                        MessageBox.Show(saveAudio.OutFileNameComplete);
                     }
                     saveAudio.Dispose();
                 }
@@ -119,8 +120,7 @@ namespace BatRecording
         {
             var deviceEnumerator = new MMDeviceEnumerator();
             var defaultDevice = deviceEnumerator.GetDefaultAudioEndpoint(DataFlow.Capture, Role.Multimedia);
-            this.soundIn = new WasapiCapture();
-            this.soundIn.Device = defaultDevice;
+            this.soundIn = new WasapiCapture {Device = defaultDevice};
 
             this.soundIn.Initialize();
             var soundInSource = new SoundInSource(this.soundIn) { FillWithZeros = false };
@@ -157,8 +157,8 @@ namespace BatRecording
             if(this.WindowState == FormWindowState.Minimized)
             {
                 this.NotifycationIcon.Visible = true;
-                this.NotifycationIcon.BalloonTipTitle = "Bat Recording";
-                this.NotifycationIcon.BalloonTipText = "Minimizado \nPara Gravar Pressione CTRL+ SHIT + K";
+                this.NotifycationIcon.BalloonTipTitle = @"Bat Recording";
+                this.NotifycationIcon.BalloonTipText = @"Minimizado \nPara Gravar Pressione CTRL+ SHIT + K";
                 this.NotifycationIcon.BalloonTipIcon = ToolTipIcon.Info;
                 this.NotifycationIcon.ShowBalloonTip(1000);
                 this.Hide();
@@ -180,7 +180,7 @@ namespace BatRecording
         private void mainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!ghk.Unregiser())
-                MessageBox.Show("Hotkey failed to unregister!");
+                MessageBox.Show(@"Hotkey failed to unregister!");
 
         }
 
@@ -188,8 +188,8 @@ namespace BatRecording
         {
             this.WindowState = FormWindowState.Minimized;
             this.NotifycationIcon.Visible = true;
-            this.NotifycationIcon.BalloonTipTitle = "Bat Recording";
-            this.NotifycationIcon.BalloonTipText = "Gravando \nPara parar Pressione CTRL+ SHIT + P";
+            this.NotifycationIcon.BalloonTipTitle = @"Bat Recording";
+            this.NotifycationIcon.BalloonTipText = @"Gravando \nPara parar Pressione CTRL+ SHIT + P";
             this.NotifycationIcon.BalloonTipIcon = ToolTipIcon.Info;
             this.NotifycationIcon.ShowBalloonTip(2000);
             this.Hide();
