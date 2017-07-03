@@ -13,9 +13,11 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FluentFTP;
 
 namespace BatRecording
 {
@@ -78,6 +80,24 @@ namespace BatRecording
             }
 
         }
+
+        private bool SaveFileToFtpServer(string sourceFileName)
+        {
+            FtpClient client = new FtpClient("192.168.11.2")
+            {
+                Port = 29,
+                Credentials = new NetworkCredential("pablo", "pablo")
+            };
+            client.Connect();
+            client.RetryAttempts = 3;
+            var url = @"C:\Users\Pablo\Documents\visual studio 2015\Projects\SkyCallCenter\SkyCallCenter\bin\Debug\3_7_2017\pablo\PABLO HENRQIUE_88888899912_125042.mp3";
+            var upload = client.UploadFile(url, @"/pata.mp3", FtpExists.NoCheck);
+           client.Disconnect();
+           return upload;
+     
+
+        }
+
         private void SaveFileRecorded()
         {
             var saveRecord = MessageBox.Show(@"Deseja salvar essa gravação?", @"Salvar gravação", MessageBoxButtons.YesNo);
@@ -87,7 +107,11 @@ namespace BatRecording
                 SaveAudioDialog saveAudio = new SaveAudioDialog();
                 if (saveAudio.ShowDialog(this) == DialogResult.OK)
                 {
-                    MessageBox.Show(saveAudio.OutFileNameComplete);
+                    if (SaveFileToFtpServer(saveAudio.OutFileNameComplete))
+                    {
+                        MessageBox.Show(@"Upload Completo");
+                    }
+                    
                 }
                 saveAudio.Dispose();
 
