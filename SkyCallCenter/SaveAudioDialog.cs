@@ -45,7 +45,7 @@ namespace BatRecording
                 MessageBox.Show("Digite o nome do cliente completo.");
             }
 
-            if (! (TextBoxCPF.Text.Length == 11) )
+            if (TextBoxCPF.Text.Length != 11 )
             {
                 allValid = false;
                 MessageBox.Show("Digite o CPF do cliente sem números.");
@@ -53,16 +53,17 @@ namespace BatRecording
             if (allValid)
             {
                 var clienteName = TextBoxClienteName.Text;
-                var clienteCPF = TextBoxCPF.Text;
+                var clienteCpf = TextBoxCPF.Text;
 
-                var finalTime = DateTime.Now.ToString("HHmm");
+                var finalTime = DateTime.Now.ToString("HHmmss");
 
-                var outFileName = clienteName + "_" +clienteCPF + "_" + finalTime + ".mp3";
-                convertWithFFMPEG("out.wav", this.operatorBaseUrl + Path.AltDirectorySeparatorChar + outFileName);
-                //File.Move(outFileName, this.operatorBaseUrl + Path.AltDirectorySeparatorChar + outFileName);
+                var outFileName = clienteName + "_" +clienteCpf + "_" + finalTime + ".mp3";
+                ConvertWithFfmpeg("out.wav", this.operatorBaseUrl + Path.AltDirectorySeparatorChar + outFileName);
+                MessageBox.Show("Gravação salva com sucesso.");
+                this.DialogResult = DialogResult.OK;
             }
         }
-        public void convertWithFFMPEG(string inputFile, string outputFileName)
+        public void ConvertWithFfmpeg(string inputFile, string outputFileName)
         {
             var ffmpeg = new NReco.VideoConverter.FFMpegConverter();
             ffmpeg.ConvertMedia(inputFile, outputFileName, NReco.VideoConverter.Format.mpeg);

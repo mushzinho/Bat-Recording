@@ -26,19 +26,36 @@ namespace BatRecording
         private IWriteable writer;
         private IWaveSource waveSource;
         private GlobalHotKey ghk;
+        private GlobalHotKey ghk1;
+        private const string wavOut = "out.wav";
 
         public Form1()
         {
             InitializeComponent();
             this.KeyPreview = true;
             this.ghk = new GlobalHotKey(Constants.SHIFT + Constants.CTRL, Keys.K , this);
+            this.ghk1 = new GlobalHotKey(Constants.SHIFT + Constants.CTRL, Keys.P, this);
 
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (!this.ghk.Register()) {
+            if (!this.ghk.Register() || !this.ghk1.Register()) {
                 throw new Exception("Não foi possivel registrar o atalho de escopo global");
+            }
+        }
+        private void ToggleRecordButton()
+        {
+            if (!this.recording)
+            {
+                this.statusTextBox.Text = "Gravando.";
+                this.RecordButton.Text = "Parar";
+                this.recording = true;
+            }else
+            {
+                this.statusTextBox.Text = "Não está gravando.";
+                this.RecordButton.Text = "Gravar";
+                this.recording = false;
             }
         }
 
@@ -48,24 +65,20 @@ namespace BatRecording
             if (!this.recording)
             {
 
-                StartCapture("out.wav");
-                this.statusTextBox.Text = "Gravando.";
-                this.RecordButton.Text = "Parar";
-                this.recording = true;
+                StartCapture(wavOut);
+                ToggleRecordButton();
 
             }
             else
             {
                 StopCapture();
-                this.statusTextBox.Text = "Não está gravando.";
-                this.RecordButton.Text = "Gravar";
-                this.recording = false;
-                saveFileRecord();
+                ToggleRecordButton();
+                SaveFileRecorded();
 
             }
 
         }
-        private void saveFileRecord()
+        private void SaveFileRecorded()
         {
             var saveRecord = MessageBox.Show("Deseja salvar essa gravação?", "Salvar gravação", MessageBoxButtons.YesNo);
 
@@ -180,7 +193,14 @@ namespace BatRecording
             this.NotifycationIcon.BalloonTipIcon = ToolTipIcon.Info;
             this.NotifycationIcon.ShowBalloonTip(2000);
             this.Hide();
-            StartCapture("out.wav");
+            StartCapture(wavOut);
+            ToggleRecordButton();
+        }
+        private void StopRecording()
+        {
+            StopCapture();
+            ToggleRecordButton();
+            SaveFileRecorded();
         }
 
         private Keys GetKey(IntPtr LParam)
@@ -198,6 +218,7 @@ namespace BatRecording
                         StartRecording();
                         break;
                     case Keys.P:
+                        StopRecording();
                         break;
                 }
             }
