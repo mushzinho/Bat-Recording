@@ -90,12 +90,11 @@ namespace BatRecording
             };
             client.Connect();
             client.RetryAttempts = 3;
-            var url = @"C:\Users\Pablo\Documents\visual studio 2015\Projects\SkyCallCenter\SkyCallCenter\bin\Debug\3_7_2017\pablo\PABLO HENRQIUE_88888899912_125042.mp3";
-            var upload = client.UploadFile(url, @"/pata.mp3", FtpExists.NoCheck);
+            var url = Path.GetFullPath(sourceFileName);
+            var upload = client.UploadFile(@url, "/" + @sourceFileName , FtpExists.NoCheck, true);
+            //MessageBox.Show(@sourceFileName);
            client.Disconnect();
            return upload;
-     
-
         }
 
         private void SaveFileRecorded()
