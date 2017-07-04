@@ -23,51 +23,51 @@ namespace BatRecording
 {
     public partial class Form1 : Form
     {
-        private Boolean recording = false;
-        private WasapiCapture soundIn;
-        private IWriteable writer;
-        private IWaveSource waveSource;
-        private GlobalHotKey ghk;
-        private GlobalHotKey ghk1;
-        private const string wavOut = "out.wav";
+        private Boolean _recording = false;
+        private WasapiCapture _soundIn;
+        private IWriteable _writer;
+        private IWaveSource _waveSource;
+        private GlobalHotKey _ghk;
+        private GlobalHotKey _ghk1;
+        private const string WavOut = "out.wav";
 
         public Form1()
         {
             InitializeComponent();
             this.KeyPreview = true;
-            this.ghk = new GlobalHotKey(Constants.SHIFT + Constants.CTRL, Keys.K , this);
-            this.ghk1 = new GlobalHotKey(Constants.SHIFT + Constants.CTRL, Keys.P, this);
+            this._ghk = new GlobalHotKey(Constants.SHIFT + Constants.CTRL, Keys.K , this);
+            this._ghk1 = new GlobalHotKey(Constants.SHIFT + Constants.CTRL, Keys.P, this);
 
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (!this.ghk.Register() || !this.ghk1.Register()) {
+            if (!this._ghk.Register() || !this._ghk1.Register()) {
                 throw new Exception("Não foi possivel registrar o atalho de escopo global");
             }
         }
         private void ToggleRecordButton()
         {
-            if (!this.recording)
+            if (!this._recording)
             {
                 this.statusTextBox.Text = @"Gravando.";
                 this.RecordButton.Text = @"Parar";
-                this.recording = true;
+                this._recording = true;
             }else
             {
                 this.statusTextBox.Text = @"Não está gravando.";
                 this.RecordButton.Text = @"Gravar";
-                this.recording = false;
+                this._recording = false;
             }
         }
 
         private void Record_Click(object sender, EventArgs events)
         {
            
-            if (!this.recording)
+            if (!this._recording)
             {
 
-                StartCapture(wavOut);
+                StartCapture(WavOut);
                 ToggleRecordButton();
 
             }
@@ -143,35 +143,35 @@ Essa ação não pode ser desfeita.", @"Apagar gravação ?", MessageBoxButtons.
         {
             var deviceEnumerator = new MMDeviceEnumerator();
             var defaultDevice = deviceEnumerator.GetDefaultAudioEndpoint(DataFlow.Capture, Role.Multimedia);
-            this.soundIn = new WasapiCapture {Device = defaultDevice};
+            this._soundIn = new WasapiCapture {Device = defaultDevice};
 
-            this.soundIn.Initialize();
-            var soundInSource = new SoundInSource(this.soundIn) { FillWithZeros = false };
-            this.waveSource = soundInSource.ToSampleSource().ToWaveSource();
-            this.writer = new WaveWriter(fileName, this.waveSource.WaveFormat);
+            this._soundIn.Initialize();
+            var soundInSource = new SoundInSource(this._soundIn) { FillWithZeros = false };
+            this._waveSource = soundInSource.ToSampleSource().ToWaveSource();
+            this._writer = new WaveWriter(fileName, this._waveSource.WaveFormat);
 
-            byte[] buffer = new byte[this.waveSource.WaveFormat.BytesPerSecond / 2];
+            byte[] buffer = new byte[this._waveSource.WaveFormat.BytesPerSecond / 2];
             soundInSource.DataAvailable += (s, e) =>
             {
                 int read;
-                while ((read = this.waveSource.Read(buffer, 0, buffer.Length)) > 0)
-                    this.writer.Write(buffer, 0, read);
+                while ((read = this._waveSource.Read(buffer, 0, buffer.Length)) > 0)
+                    this._writer.Write(buffer, 0, read);
             };
 
-            soundIn.Start();
+            _soundIn.Start();
         }
 
         private void StopCapture()
         {
-            if (soundIn != null)
+            if (_soundIn != null)
             {
-                this.soundIn.Stop();
-                this.soundIn.Dispose();
-                this.soundIn = null;
-                this.waveSource.Dispose();
+                this._soundIn.Stop();
+                this._soundIn.Dispose();
+                this._soundIn = null;
+                this._waveSource.Dispose();
 
-                if (writer is IDisposable)
-                    ((IDisposable)writer).Dispose();
+                if (_writer is IDisposable)
+                    ((IDisposable)_writer).Dispose();
             }
         }
 
@@ -181,7 +181,7 @@ Essa ação não pode ser desfeita.", @"Apagar gravação ?", MessageBoxButtons.
             {
                 this.NotifycationIcon.Visible = true;
                 this.NotifycationIcon.BalloonTipTitle = @"Bat Recording";
-                this.NotifycationIcon.BalloonTipText = @"Minimizado \nPara Gravar Pressione CTRL+ SHIT + K";
+                this.NotifycationIcon.BalloonTipText = "Minimizado \nPara Gravar Pressione CTRL+ SHIT + K";
                 this.NotifycationIcon.BalloonTipIcon = ToolTipIcon.Info;
                 this.NotifycationIcon.ShowBalloonTip(1000);
                 this.Hide();
@@ -199,24 +199,23 @@ Essa ação não pode ser desfeita.", @"Apagar gravação ?", MessageBoxButtons.
             
         }
 
-
         private void mainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!ghk.Unregiser())
+            if (!_ghk.Unregiser() || !_ghk1.Unregiser())
                 MessageBox.Show(@"Hotkey failed to unregister!");
 
         }
 
         private void StartRecording()
         {
-            this.WindowState = FormWindowState.Minimized;
+            //this.WindowState = FormWindowState.Minimized;
             this.NotifycationIcon.Visible = true;
             this.NotifycationIcon.BalloonTipTitle = @"Bat Recording";
-            this.NotifycationIcon.BalloonTipText = @"Gravando \nPara parar Pressione CTRL+ SHIT + P";
+            this.NotifycationIcon.BalloonTipText = "Gravando \nPara parar Pressione CTRL+ SHIT + P";
             this.NotifycationIcon.BalloonTipIcon = ToolTipIcon.Info;
             this.NotifycationIcon.ShowBalloonTip(2000);
-            this.Hide();
-            StartCapture(wavOut);
+           // this.Hide();
+            StartCapture(WavOut);
             ToggleRecordButton();
         }
         private void StopRecording()

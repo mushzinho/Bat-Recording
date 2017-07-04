@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SaveAudioDialog));
             this.TextBoxClienteName = new System.Windows.Forms.TextBox();
             this.TextBoxCPF = new System.Windows.Forms.TextBox();
             this.labelClienteName = new System.Windows.Forms.Label();
@@ -93,15 +94,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(405, 196);
-            this.ControlBox = false;
             this.Controls.Add(this.Finalize);
             this.Controls.Add(this.labelSubtitle);
             this.Controls.Add(this.labelCPF);
             this.Controls.Add(this.labelClienteName);
             this.Controls.Add(this.TextBoxCPF);
             this.Controls.Add(this.TextBoxClienteName);
-            this.MinimizeBox = false;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SaveAudioDialog";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Salvar Gravação";
             this.ResumeLayout(false);
             this.PerformLayout();
