@@ -38,7 +38,7 @@ namespace BatRecording
             this._ghk = new GlobalHotKey(Constants.SHIFT + Constants.CTRL, Keys.K , this);
             this._ghk1 = new GlobalHotKey(Constants.SHIFT + Constants.CTRL, Keys.P, this);
 
-            new Employer().DeleteEmployer("pablo");
+            new Employer().ChangePassword("login3", "pass4");
 
         }
 

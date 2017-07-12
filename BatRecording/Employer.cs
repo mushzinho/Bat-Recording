@@ -19,6 +19,7 @@ namespace BatRecording
 
         private void GetAllEmployers()
         {
+            _employers.Clear();
             var manageFtp = new ManageFtp("pablo", "pablo");
             var client = manageFtp.Client;
             Stream myFileStream = client.OpenRead(BaseUrlEmployersFile, FtpDataType.Binary);
@@ -102,10 +103,29 @@ namespace BatRecording
             this.SaveEmployerToFile();
         }
 
-        public bool ChangePassword(string login, string newPass)
+        public void ChangePassword(string login, string newPass)
         {
+            this.GetAllEmployers();
 
-            return true;
+            if (_employers.Count > 0)
+            {
+                int count = 0;
+                foreach (var employer in _employers)
+                {
+                    string[] employerSplited = employer.Split(':');
+                    if (employerSplited[1] == login)
+                    {
+                        string newEmployer = employerSplited[0] + ":" + login + ":" + newPass;
+                        //_employers.Insert(count, newEmployer);
+                        _employers[count] = newEmployer;
+                        break;
+
+                    }
+                    count++;
+                }
+            }
+
+            this.SaveEmployerToFile();
         }
         
 
