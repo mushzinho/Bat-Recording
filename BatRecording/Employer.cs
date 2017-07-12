@@ -72,6 +72,7 @@ namespace BatRecording
         }
         public bool CreateEmployer(string name, string login, string pass)
         {
+
             this.GetAllEmployers();
             if (_employers.Count > 0)
             {
@@ -94,6 +95,20 @@ namespace BatRecording
             this.SaveEmployerToFile();
 
             return true;
+        }
+
+        public bool Autentication(string login, string pass)
+        {
+            this.GetAllEmployers();
+            foreach (var employer in _employers)
+            {
+                string[] employerSplited = employer.Split(':');
+                if (employerSplited[1] == login && employerSplited[2] == pass)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public void DeleteEmployer(int id)
