@@ -24,25 +24,45 @@ namespace BatRecording
             Stream myFileStream = client.OpenRead(BaseUrlEmployersFile, FtpDataType.Binary);
             StreamReader reader = new StreamReader(myFileStream, Encoding.UTF8);
 
-            string[] allEmployers = reader.ReadToEnd().Split('\n');
-            foreach (var employer in allEmployers)
+
+            string readEmployers = reader.ReadToEnd();
+            if (readEmployers == "")
             {
-                _employers.Add(employer);
+                reader.Close();
+                client.Disconnect();
+                return;
+            }
+            string[] allEmployers = readEmployers.Split('\n');
+            foreach (var employer in allEmployers)
+            {   
+                if(employer != "") _employers.Add(employer);
             }
             
             reader.Close();
             client.Disconnect();
         }
 
-        private void SaveEmployerToFile(string employer)
+        private void SaveEmployerToFile()
         {
             var manageFtp = new ManageFtp("pablo", "pablo");
             var client = manageFtp.Client;
-            Stream myFileStream = client.OpenAppend(BaseUrlEmployersFile, FtpDataType.Binary);
+            Stream myFileStream = client.OpenWrite(BaseUrlEmployersFile, FtpDataType.Binary);
           
             StreamWriter writer = new StreamWriter(myFileStream);
+
+            if (_employers.Count == 0)
+            {
+                writer.Close();
+                client.GetReply();
+                client.Disconnect();
+                return;
+            }
+
+            foreach (var employer in _employers)
+            {
+                writer.Write(employer + "\n");
+            }
            
-            writer.WriteLine(employer);
             writer.Flush();
             writer.Close();
             client.GetReply();
@@ -52,27 +72,34 @@ namespace BatRecording
         public bool CreateEmployer(string name, string login, string pass)
         {
             this.GetAllEmployers();
-            if (_employers.Any(lineEmployer => lineEmployer.Contains(login)))
+            if (_employers.Count > 0)
             {
-                MessageBox.Show(@"Já existe um funcionario com esse login.");
-                return false;
+                foreach (var emp in _employers)
+                {
+                    if (emp.Split(':')[1] == login)
+                    {
+                        MessageBox.Show(@"Já existe um funcionario com esse login.");
+                        return false;
+                    }
+                }
             }
-            //TODO: NAO TA CRIANDO COM MESMO NOME
-           
+
             this._name = name;
             this._login = login;
             this._pass = pass;
 
             string employer = _name + ":" + _login + ":" + _pass;
-            this.SaveEmployerToFile(employer);
+            _employers.Add(employer);
+            this.SaveEmployerToFile();
 
             return true;
         }
 
-        public bool DeleteEmployer(string login)
+        public void DeleteEmployer(int id)
         {
-
-            return true;
+            this.GetAllEmployers();
+            _employers.RemoveAt(id);
+            this.SaveEmployerToFile();
         }
 
         public bool ChangePassword(string login, string newPass)

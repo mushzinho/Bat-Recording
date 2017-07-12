@@ -5,6 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 using FluentFTP;
 
 namespace BatRecording
@@ -21,7 +22,15 @@ namespace BatRecording
                 Port = 29,
                 Credentials = new NetworkCredential(username, pass)
             };
-            this.Client.Connect();
+            try
+            {
+                this.Client.Connect();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            
         }
         
     }
