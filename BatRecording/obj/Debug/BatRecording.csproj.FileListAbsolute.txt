@@ -5,7 +5,6 @@ C:\Users\Pablo\Documents\Visual Studio 2015\Projects\BatRecording\BatRecording\b
 C:\Users\Pablo\Documents\Visual Studio 2015\Projects\BatRecording\BatRecording\bin\Debug\FluentFTP.xml
 C:\Users\Pablo\Documents\Visual Studio 2015\Projects\BatRecording\BatRecording\bin\Debug\NReco.VideoConverter.xml
 C:\Users\Pablo\Documents\Visual Studio 2015\Projects\BatRecording\BatRecording\obj\Debug\BatRecording.csprojResolveAssemblyReference.cache
-C:\Users\Pablo\Documents\Visual Studio 2015\Projects\BatRecording\BatRecording\obj\Debug\BatRecording.Form1.resources
 C:\Users\Pablo\Documents\Visual Studio 2015\Projects\BatRecording\BatRecording\obj\Debug\BatRecording.SaveAudioDialog.resources
 C:\Users\Pablo\Documents\Visual Studio 2015\Projects\BatRecording\BatRecording\obj\Debug\BatRecording.csproj.GenerateResource.Cache
 C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\bin\Debug\Bat Recording.exe.config
@@ -14,3 +13,4 @@ C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\b
 C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\obj\Debug\BatRecording.Properties.Resources.resources
 C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\obj\Debug\Bat Recording.exe
 C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\obj\Debug\Bat Recording.pdb
+C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\obj\Debug\BatRecording.MainWindow.resources
