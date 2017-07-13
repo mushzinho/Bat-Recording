@@ -34,6 +34,7 @@
             this.textBoxLogin = new System.Windows.Forms.TextBox();
             this.textBoxSenha = new System.Windows.Forms.TextBox();
             this.buttonLogin = new System.Windows.Forms.Button();
+            this.buttonCriarConta = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LabelLogin
@@ -79,11 +80,22 @@
             this.buttonLogin.UseVisualStyleBackColor = true;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
+            // buttonCriarConta
+            // 
+            this.buttonCriarConta.Location = new System.Drawing.Point(283, 161);
+            this.buttonCriarConta.Name = "buttonCriarConta";
+            this.buttonCriarConta.Size = new System.Drawing.Size(66, 23);
+            this.buttonCriarConta.TabIndex = 5;
+            this.buttonCriarConta.Text = "?";
+            this.buttonCriarConta.UseVisualStyleBackColor = true;
+            this.buttonCriarConta.Click += new System.EventHandler(this.buttonCriarConta_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(361, 196);
+            this.Controls.Add(this.buttonCriarConta);
             this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.textBoxSenha);
             this.Controls.Add(this.textBoxLogin);
@@ -105,5 +117,6 @@
         private System.Windows.Forms.TextBox textBoxLogin;
         private System.Windows.Forms.TextBox textBoxSenha;
         private System.Windows.Forms.Button buttonLogin;
+        private System.Windows.Forms.Button buttonCriarConta;
     }
 }

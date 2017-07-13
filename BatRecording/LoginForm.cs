@@ -40,6 +40,15 @@ namespace BatRecording
             }
             
         }
+
+        private void buttonCriarConta_Click(object sender, EventArgs e)
+        {
+            AdminPass adminpass = new AdminPass();
+            if (adminpass.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show("OK");
+            }
+        }
     }
 }
 

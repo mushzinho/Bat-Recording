@@ -15,3 +15,5 @@ C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\o
 C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\obj\Debug\Bat Recording.pdb
 C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\obj\Debug\BatRecording.MainWindow.resources
 C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\obj\Debug\BatRecording.LoginForm.resources
+C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\obj\Debug\BatRecording.Admin.resources
+C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\obj\Debug\BatRecording.AdminPass.resources

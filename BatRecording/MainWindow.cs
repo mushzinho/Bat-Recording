@@ -43,7 +43,7 @@ namespace BatRecording
 
         }
 
-        public void setOperatorName(string employerLogged)
+        public void SetOperatorName(string employerLogged)
         {
             this._operatorName = employerLogged;
         }
