@@ -15,9 +15,9 @@ namespace BatRecording
     {
         private string baseURL  = "";
         private string operatorBaseUrl;
-        private string operatorName = "pablo";
         public string OutFileNameComplete;
-        public SaveAudioDialog()
+
+        public SaveAudioDialog(string operatorName)
         {
             InitializeComponent();
 
@@ -27,9 +27,9 @@ namespace BatRecording
             {
                 Directory.CreateDirectory(baseURL + todayFormated);
             }
-
-             this.operatorBaseUrl = baseURL + todayFormated + Path.AltDirectorySeparatorChar + this.operatorName;
-
+                            
+             this.operatorBaseUrl = baseURL + todayFormated + Path.AltDirectorySeparatorChar + operatorName;
+        
             if (!Directory.Exists(operatorBaseUrl))
             {
                 Directory.CreateDirectory(operatorBaseUrl);

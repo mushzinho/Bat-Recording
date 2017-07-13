@@ -17,7 +17,19 @@ namespace BatRecording
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+
+            LoginForm loginForm = new LoginForm();
+            if (loginForm.ShowDialog() == DialogResult.OK)
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.setOperatorName(loginForm.UserLogged);
+                Application.Run(mainWindow);
+            }
+            else
+            {
+                Application.Exit();
+            }
+            
         }
     }
 }
