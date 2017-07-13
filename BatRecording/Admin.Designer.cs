@@ -106,6 +106,7 @@
             this.buttonCriarConta.TabIndex = 6;
             this.buttonCriarConta.Text = "Criar Conta";
             this.buttonCriarConta.UseVisualStyleBackColor = true;
+            this.buttonCriarConta.Click += new System.EventHandler(this.buttonCriarConta_Click);
             // 
             // labelLoginMudar
             // 
@@ -166,6 +167,7 @@
             this.buttonMudarSenha.TabIndex = 14;
             this.buttonMudarSenha.Text = "Alterar Senha";
             this.buttonMudarSenha.UseVisualStyleBackColor = true;
+            this.buttonMudarSenha.Click += new System.EventHandler(this.buttonMudarSenha_Click);
             // 
             // label3
             // 
@@ -180,7 +182,6 @@
             // 
             this.textBoxDeletarConta.Location = new System.Drawing.Point(94, 265);
             this.textBoxDeletarConta.Name = "textBoxDeletarConta";
-            this.textBoxDeletarConta.PasswordChar = '*';
             this.textBoxDeletarConta.Size = new System.Drawing.Size(274, 20);
             this.textBoxDeletarConta.TabIndex = 16;
             // 
@@ -201,6 +202,7 @@
             this.buttonDeletarConta.TabIndex = 18;
             this.buttonDeletarConta.Text = "Deletar";
             this.buttonDeletarConta.UseVisualStyleBackColor = true;
+            this.buttonDeletarConta.Click += new System.EventHandler(this.buttonDeletarConta_Click);
             // 
             // Admin
             // 

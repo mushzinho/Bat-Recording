@@ -111,16 +111,36 @@ namespace BatRecording
             return false;
         }
 
-        public void DeleteEmployer(int id)
+        public bool DeleteEmployer(string login)
         {
             this.GetAllEmployers();
-            _employers.RemoveAt(id);
-            this.SaveEmployerToFile();
+            int pos = 0;
+            bool deleted = false;
+            if (_employers.Count > 0)
+            {
+                foreach (var employer in _employers)
+                {
+                    string[] employerSplited = employer.Split(':');
+
+                    if (employerSplited[1] == login)
+                    {
+                        _employers.RemoveAt(pos);
+                        deleted = true;
+                        this.SaveEmployerToFile();
+                        break;
+                    }
+                    pos++;
+                }
+            }
+
+            return deleted;
+
         }
 
-        public void ChangePassword(string login, string newPass)
+        public bool ChangePassword(string login, string newPass)
         {
             this.GetAllEmployers();
+            bool changed = false;
 
             if (_employers.Count > 0)
             {
@@ -131,8 +151,9 @@ namespace BatRecording
                     if (employerSplited[1] == login)
                     {
                         string newEmployer = employerSplited[0] + ":" + login + ":" + newPass;
-                        //_employers.Insert(count, newEmployer);
                         _employers[count] = newEmployer;
+                        changed = true;
+                        this.SaveEmployerToFile();
                         break;
 
                     }
@@ -140,7 +161,8 @@ namespace BatRecording
                 }
             }
 
-            this.SaveEmployerToFile();
+            
+            return changed;
         }
         
 
