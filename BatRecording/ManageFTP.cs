@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -15,12 +16,18 @@ namespace BatRecording
     {
         public FtpClient Client { get; }
 
-        public ManageFtp(string username, string pass, string server = "127.0.0.1")
+        public ManageFtp()
         {
+            StreamReader reader = File.OpenText("config.txt");
+            string[] serverConfigs = reader.ReadToEnd().Split(':')[0].Split('/');
+            string login = serverConfigs[0];
+            string senha = serverConfigs[1];
+            string server = serverConfigs[2];
+
              this.Client = new FtpClient(server)    
             {
                 Port = 29,
-                Credentials = new NetworkCredential(username, pass)
+                Credentials = new NetworkCredential(login, senha)
             };
             try
             {

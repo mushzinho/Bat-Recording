@@ -20,7 +20,7 @@ namespace BatRecording
         private void GetAllEmployers()
         {
             _employers.Clear();
-            var manageFtp = new ManageFtp("pablo", "pablo");
+            var manageFtp = new ManageFtp();
             var client = manageFtp.Client;
             Stream myFileStream = client.OpenRead(BaseUrlEmployersFile, FtpDataType.Binary);
             StreamReader reader = new StreamReader(myFileStream, Encoding.UTF8);
@@ -45,7 +45,7 @@ namespace BatRecording
 
         private void SaveEmployerToFile()
         {
-            var manageFtp = new ManageFtp("pablo", "pablo");
+            var manageFtp = new ManageFtp();
             var client = manageFtp.Client;
             Stream myFileStream = client.OpenWrite(BaseUrlEmployersFile, FtpDataType.Binary);
           

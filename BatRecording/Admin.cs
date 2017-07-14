@@ -22,6 +22,11 @@ namespace BatRecording
 
         private void buttonCriarConta_Click(object sender, EventArgs e)
         {
+            if (this.textBoxNomeCriar.Text.Length <= 2 || this.textBoxLoginCriar.Text.Length <= 2)
+            {
+                MessageBox.Show(@"Nome e login devem ter mais de 2 digitos.");
+                return;
+            }
             bool createEmployer = _employer.CreateEmployer(this.textBoxNomeCriar.Text, this.textBoxLoginCriar.Text,
                 this.textBoxSenhaCriar.Text);
             if (createEmployer) MessageBox.Show(@"Cadastro Criado.");
@@ -30,6 +35,7 @@ namespace BatRecording
 
         private void buttonMudarSenha_Click(object sender, EventArgs e)
         {
+
             bool updatePassEmployer =
                 _employer.ChangePassword(this.textBoxLoginMudar.Text, this.textBoxNovaSenha.Text);
             if (updatePassEmployer) MessageBox.Show(@"Senha Alterada.");

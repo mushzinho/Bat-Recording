@@ -92,7 +92,7 @@ namespace BatRecording
         private bool SaveFileToFtpServer(string sourceFileName)
         {
           
-            var manageFtp = new ManageFtp("pablo", "pablo");
+            var manageFtp = new ManageFtp();
             var client = manageFtp.Client;
             var url = Path.GetFullPath(sourceFileName);
             var upload = client.UploadFile(@url, "/" + @sourceFileName , FtpExists.NoCheck, true);
