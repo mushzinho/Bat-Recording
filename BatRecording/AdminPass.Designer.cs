@@ -55,11 +55,12 @@
             // labelTextAdmin
             // 
             this.labelTextAdmin.AutoSize = true;
-            this.labelTextAdmin.Location = new System.Drawing.Point(129, 13);
+            this.labelTextAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTextAdmin.Location = new System.Drawing.Point(145, 9);
             this.labelTextAdmin.Name = "labelTextAdmin";
-            this.labelTextAdmin.Size = new System.Drawing.Size(70, 13);
+            this.labelTextAdmin.Size = new System.Drawing.Size(53, 17);
             this.labelTextAdmin.TabIndex = 2;
-            this.labelTextAdmin.Text = "Senha Admin";
+            this.labelTextAdmin.Text = "Senha:";
             // 
             // AdminPass
             // 
