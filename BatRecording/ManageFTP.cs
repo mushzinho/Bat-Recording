@@ -37,7 +37,7 @@ namespace BatRecording
             {
                 MessageBox.Show(e.ToString());
             }
-            
+
         }
         
     }

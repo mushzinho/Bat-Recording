@@ -30,7 +30,7 @@ namespace BatRecording
         private GlobalHotKey _ghk;
         private GlobalHotKey _ghk1;
         private const string WavOut = "out.wav";
-        private string _operatorName;
+        private string _operatorData;
 
         public MainWindow()
         {
@@ -43,9 +43,9 @@ namespace BatRecording
 
         }
 
-        public void SetOperatorName(string employerLogged)
+        public void SetOperator(string employerLogged)
         {
-            this._operatorName = employerLogged;
+            this._operatorData = employerLogged;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -106,7 +106,7 @@ namespace BatRecording
 
             if (saveRecord == DialogResult.Yes)
             {
-                SaveAudioDialog saveAudio = new SaveAudioDialog(this._operatorName);
+                SaveAudioDialog saveAudio = new SaveAudioDialog(this._operatorData);
                 if (saveAudio.ShowDialog(this) == DialogResult.OK)
                 {
                     if (SaveFileToFtpServer(saveAudio.OutFileNameComplete))
@@ -131,7 +131,7 @@ Essa ação não pode ser desfeita.", @"Apagar gravação ?", MessageBoxButtons.
                 }
                 else
                 {
-                    SaveAudioDialog saveAudio = new SaveAudioDialog(this._operatorName);
+                    SaveAudioDialog saveAudio = new SaveAudioDialog(this._operatorData);
                     if (saveAudio.ShowDialog(this) == DialogResult.OK)
                     {
                         MessageBox.Show(saveAudio.OutFileNameComplete);

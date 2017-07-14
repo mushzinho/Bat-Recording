@@ -22,7 +22,7 @@ namespace BatRecording
             if (loginForm.ShowDialog() == DialogResult.OK)
             {
                 MainWindow mainWindow = new MainWindow();
-                mainWindow.SetOperatorName(loginForm.UserLogged);
+                mainWindow.SetOperator(loginForm.AuthenticatedEmployer);
                 Application.Run(mainWindow);
             }
             else

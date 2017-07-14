@@ -12,7 +12,7 @@ namespace BatRecording
 {
     public partial class LoginForm : Form
     {
-        public string UserLogged;
+        public string AuthenticatedEmployer;
         public LoginForm()
         {
             InitializeComponent();
@@ -21,11 +21,12 @@ namespace BatRecording
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             if (textBoxLogin.Text.Length > 2 && textBoxSenha.Text.Length > 2)
-            {
-                bool result = new Employer().Autentication(textBoxLogin.Text, textBoxSenha.Text);
+            {   
+                Employer  employer = new Employer();
+                bool result = employer.Autentication(textBoxLogin.Text, textBoxSenha.Text);
                 if (result)
                 {
-                    this.UserLogged = textBoxLogin.Text;
+                    this.AuthenticatedEmployer = employer.AuthenticatedEmployer;
                     MessageBox.Show(@"Logado com sucesso");
                     this.DialogResult = DialogResult.OK;
                 }

@@ -16,6 +16,7 @@ namespace BatRecording
         private string _pass;
         private List<string> _employers = new List<string>();
         private const string BaseUrlEmployersFile = "/employers.txt";
+        public string AuthenticatedEmployer; 
 
         private void GetAllEmployers()
         {
@@ -105,6 +106,7 @@ namespace BatRecording
                 string[] employerSplited = employer.Split(':');
                 if (employerSplited[1] == login && employerSplited[2] == pass)
                 {
+                    this.AuthenticatedEmployer = employer;
                     return true;
                 }
             }
