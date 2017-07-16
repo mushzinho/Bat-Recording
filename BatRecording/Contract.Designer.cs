@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControlDadosCliente = new System.Windows.Forms.TabControl();
-            this.tabPageDadosConsumidor = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabControlContrato = new System.Windows.Forms.TabControl();
+            this.tabDadosConsumidor = new System.Windows.Forms.TabPage();
+            this.tabPlanoPagamento = new System.Windows.Forms.TabPage();
             this.tbVendedor = new System.Windows.Forms.TextBox();
             this.labelCodVendedor = new System.Windows.Forms.Label();
             this.rbPessoaFisica = new System.Windows.Forms.RadioButton();
@@ -38,31 +38,26 @@
             this.groupBoxTipoPessoa = new System.Windows.Forms.GroupBox();
             this.tbNomeRazao = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbNascimento = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBoxSexo = new System.Windows.Forms.GroupBox();
             this.rbMasculino = new System.Windows.Forms.RadioButton();
             this.rbFeminino = new System.Windows.Forms.RadioButton();
-            this.tbTelefoneFixo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.tbTelefoneMovel = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbEstadoCivil = new System.Windows.Forms.GroupBox();
             this.rbCasado = new System.Windows.Forms.RadioButton();
             this.rbSolteiro = new System.Windows.Forms.RadioButton();
             this.rbOutros = new System.Windows.Forms.RadioButton();
-            this.tbCpfCpnj = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tbRGIncsEstRNE = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbTipoImovel = new System.Windows.Forms.GroupBox();
             this.rbApartamento = new System.Windows.Forms.RadioButton();
             this.rbCasa = new System.Windows.Forms.RadioButton();
             this.tbNomeEdificio = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.tbCep = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tbEndereco = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -89,8 +84,8 @@
             this.label21 = new System.Windows.Forms.Label();
             this.tbQtdPos = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.gbModeloTV = new System.Windows.Forms.GroupBox();
+            this.gbFormaPagamento = new System.Windows.Forms.GroupBox();
             this.rbCartaoCredito = new System.Windows.Forms.RadioButton();
             this.rbDebitoCc = new System.Windows.Forms.RadioButton();
             this.rbBoleto = new System.Windows.Forms.RadioButton();
@@ -98,7 +93,6 @@
             this.tbNumeroCartao = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.tbValidade = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.tbAgencia = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
@@ -117,120 +111,126 @@
             this.rbBandaLarga4 = new System.Windows.Forms.RadioButton();
             this.rbBandaLarga2 = new System.Windows.Forms.RadioButton();
             this.rbModeloTvHd = new System.Windows.Forms.RadioButton();
-            this.tabControlDadosCliente.SuspendLayout();
-            this.tabPageDadosConsumidor.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tbNascimento = new System.Windows.Forms.MaskedTextBox();
+            this.tbTelefoneFixo = new System.Windows.Forms.MaskedTextBox();
+            this.tbTelefoneMovel = new System.Windows.Forms.MaskedTextBox();
+            this.tbCep = new System.Windows.Forms.MaskedTextBox();
+            this.tbValidade = new System.Windows.Forms.MaskedTextBox();
+            this.tbCpfCnpj = new System.Windows.Forms.MaskedTextBox();
+            this.tabControlContrato.SuspendLayout();
+            this.tabDadosConsumidor.SuspendLayout();
+            this.tabPlanoPagamento.SuspendLayout();
             this.groupBoxTipoPessoa.SuspendLayout();
             this.groupBoxSexo.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gbEstadoCivil.SuspendLayout();
+            this.gbTipoImovel.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
+            this.gbModeloTV.SuspendLayout();
+            this.gbFormaPagamento.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControlDadosCliente
+            // tabControlContrato
             // 
-            this.tabControlDadosCliente.Controls.Add(this.tabPageDadosConsumidor);
-            this.tabControlDadosCliente.Controls.Add(this.tabPage2);
-            this.tabControlDadosCliente.Location = new System.Drawing.Point(12, 35);
-            this.tabControlDadosCliente.Name = "tabControlDadosCliente";
-            this.tabControlDadosCliente.SelectedIndex = 0;
-            this.tabControlDadosCliente.Size = new System.Drawing.Size(802, 486);
-            this.tabControlDadosCliente.TabIndex = 0;
+            this.tabControlContrato.Controls.Add(this.tabDadosConsumidor);
+            this.tabControlContrato.Controls.Add(this.tabPlanoPagamento);
+            this.tabControlContrato.Location = new System.Drawing.Point(12, 35);
+            this.tabControlContrato.Name = "tabControlContrato";
+            this.tabControlContrato.SelectedIndex = 0;
+            this.tabControlContrato.Size = new System.Drawing.Size(802, 486);
+            this.tabControlContrato.TabIndex = 0;
             // 
-            // tabPageDadosConsumidor
+            // tabDadosConsumidor
             // 
-            this.tabPageDadosConsumidor.BackColor = System.Drawing.Color.Gainsboro;
-            this.tabPageDadosConsumidor.Controls.Add(this.btProximo);
-            this.tabPageDadosConsumidor.Controls.Add(this.label4);
-            this.tabPageDadosConsumidor.Controls.Add(this.label5);
-            this.tabPageDadosConsumidor.Controls.Add(this.label3);
-            this.tabPageDadosConsumidor.Controls.Add(this.tbTelefoneMovel);
-            this.tabPageDadosConsumidor.Controls.Add(this.tbEmail);
-            this.tabPageDadosConsumidor.Controls.Add(this.tbTelefoneFixo);
-            this.tabPageDadosConsumidor.Controls.Add(this.groupBox1);
-            this.tabPageDadosConsumidor.Controls.Add(this.groupBoxSexo);
-            this.tabPageDadosConsumidor.Controls.Add(this.label15);
-            this.tabPageDadosConsumidor.Controls.Add(this.label11);
-            this.tabPageDadosConsumidor.Controls.Add(this.label17);
-            this.tabPageDadosConsumidor.Controls.Add(this.label12);
-            this.tabPageDadosConsumidor.Controls.Add(this.label9);
-            this.tabPageDadosConsumidor.Controls.Add(this.label2);
-            this.tabPageDadosConsumidor.Controls.Add(this.tbCidade);
-            this.tabPageDadosConsumidor.Controls.Add(this.tbBairro);
-            this.tabPageDadosConsumidor.Controls.Add(this.tbUF);
-            this.tabPageDadosConsumidor.Controls.Add(this.tbNumero);
-            this.tabPageDadosConsumidor.Controls.Add(this.tbCep);
-            this.tabPageDadosConsumidor.Controls.Add(this.tbNascimento);
-            this.tabPageDadosConsumidor.Controls.Add(this.label8);
-            this.tabPageDadosConsumidor.Controls.Add(this.label16);
-            this.tabPageDadosConsumidor.Controls.Add(this.label13);
-            this.tabPageDadosConsumidor.Controls.Add(this.label10);
-            this.tabPageDadosConsumidor.Controls.Add(this.label14);
-            this.tabPageDadosConsumidor.Controls.Add(this.label7);
-            this.tabPageDadosConsumidor.Controls.Add(this.label6);
-            this.tabPageDadosConsumidor.Controls.Add(this.label1);
-            this.tabPageDadosConsumidor.Controls.Add(this.tbReferencia);
-            this.tabPageDadosConsumidor.Controls.Add(this.tbComplemento);
-            this.tabPageDadosConsumidor.Controls.Add(this.tbEndereco);
-            this.tabPageDadosConsumidor.Controls.Add(this.tbRGIncsEstRNE);
-            this.tabPageDadosConsumidor.Controls.Add(this.tbCondominio);
-            this.tabPageDadosConsumidor.Controls.Add(this.tbNomeEdificio);
-            this.tabPageDadosConsumidor.Controls.Add(this.tbCpfCpnj);
-            this.tabPageDadosConsumidor.Controls.Add(this.tbNomeRazao);
-            this.tabPageDadosConsumidor.Controls.Add(this.groupBox2);
-            this.tabPageDadosConsumidor.Controls.Add(this.groupBoxTipoPessoa);
-            this.tabPageDadosConsumidor.Controls.Add(this.labelCodVendedor);
-            this.tabPageDadosConsumidor.Controls.Add(this.tbVendedor);
-            this.tabPageDadosConsumidor.Location = new System.Drawing.Point(4, 22);
-            this.tabPageDadosConsumidor.Name = "tabPageDadosConsumidor";
-            this.tabPageDadosConsumidor.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDadosConsumidor.Size = new System.Drawing.Size(794, 460);
-            this.tabPageDadosConsumidor.TabIndex = 0;
-            this.tabPageDadosConsumidor.Text = "Dados Consumidor";
+            this.tabDadosConsumidor.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabDadosConsumidor.Controls.Add(this.tbCpfCnpj);
+            this.tabDadosConsumidor.Controls.Add(this.tbCep);
+            this.tabDadosConsumidor.Controls.Add(this.tbTelefoneMovel);
+            this.tabDadosConsumidor.Controls.Add(this.tbTelefoneFixo);
+            this.tabDadosConsumidor.Controls.Add(this.tbNascimento);
+            this.tabDadosConsumidor.Controls.Add(this.btProximo);
+            this.tabDadosConsumidor.Controls.Add(this.label4);
+            this.tabDadosConsumidor.Controls.Add(this.label5);
+            this.tabDadosConsumidor.Controls.Add(this.label3);
+            this.tabDadosConsumidor.Controls.Add(this.tbEmail);
+            this.tabDadosConsumidor.Controls.Add(this.gbEstadoCivil);
+            this.tabDadosConsumidor.Controls.Add(this.groupBoxSexo);
+            this.tabDadosConsumidor.Controls.Add(this.label15);
+            this.tabDadosConsumidor.Controls.Add(this.label11);
+            this.tabDadosConsumidor.Controls.Add(this.label17);
+            this.tabDadosConsumidor.Controls.Add(this.label12);
+            this.tabDadosConsumidor.Controls.Add(this.label9);
+            this.tabDadosConsumidor.Controls.Add(this.label2);
+            this.tabDadosConsumidor.Controls.Add(this.tbCidade);
+            this.tabDadosConsumidor.Controls.Add(this.tbBairro);
+            this.tabDadosConsumidor.Controls.Add(this.tbUF);
+            this.tabDadosConsumidor.Controls.Add(this.tbNumero);
+            this.tabDadosConsumidor.Controls.Add(this.label8);
+            this.tabDadosConsumidor.Controls.Add(this.label16);
+            this.tabDadosConsumidor.Controls.Add(this.label13);
+            this.tabDadosConsumidor.Controls.Add(this.label10);
+            this.tabDadosConsumidor.Controls.Add(this.label14);
+            this.tabDadosConsumidor.Controls.Add(this.label7);
+            this.tabDadosConsumidor.Controls.Add(this.label6);
+            this.tabDadosConsumidor.Controls.Add(this.label1);
+            this.tabDadosConsumidor.Controls.Add(this.tbReferencia);
+            this.tabDadosConsumidor.Controls.Add(this.tbComplemento);
+            this.tabDadosConsumidor.Controls.Add(this.tbEndereco);
+            this.tabDadosConsumidor.Controls.Add(this.tbRGIncsEstRNE);
+            this.tabDadosConsumidor.Controls.Add(this.tbCondominio);
+            this.tabDadosConsumidor.Controls.Add(this.tbNomeEdificio);
+            this.tabDadosConsumidor.Controls.Add(this.tbNomeRazao);
+            this.tabDadosConsumidor.Controls.Add(this.gbTipoImovel);
+            this.tabDadosConsumidor.Controls.Add(this.groupBoxTipoPessoa);
+            this.tabDadosConsumidor.Controls.Add(this.labelCodVendedor);
+            this.tabDadosConsumidor.Controls.Add(this.tbVendedor);
+            this.tabDadosConsumidor.Location = new System.Drawing.Point(4, 22);
+            this.tabDadosConsumidor.Name = "tabDadosConsumidor";
+            this.tabDadosConsumidor.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDadosConsumidor.Size = new System.Drawing.Size(794, 460);
+            this.tabDadosConsumidor.TabIndex = 0;
+            this.tabDadosConsumidor.Text = "Dados Consumidor";
             // 
-            // tabPage2
+            // tabPlanoPagamento
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.Gainsboro;
-            this.tabPage2.Controls.Add(this.btFinalizar);
-            this.tabPage2.Controls.Add(this.groupBox5);
-            this.tabPage2.Controls.Add(this.groupBox4);
-            this.tabPage2.Controls.Add(this.groupBox3);
-            this.tabPage2.Controls.Add(this.tbQtdPos);
-            this.tabPage2.Controls.Add(this.tbBanco);
-            this.tabPage2.Controls.Add(this.tbAgencia);
-            this.tabPage2.Controls.Add(this.tbConta);
-            this.tabPage2.Controls.Add(this.tbNumeroCartao);
-            this.tabPage2.Controls.Add(this.tbDataProposta);
-            this.tabPage2.Controls.Add(this.tbParcelas);
-            this.tabPage2.Controls.Add(this.tbTaxaAdesao);
-            this.tabPage2.Controls.Add(this.tbValidade);
-            this.tabPage2.Controls.Add(this.tbQtdPre);
-            this.tabPage2.Controls.Add(this.label21);
-            this.tabPage2.Controls.Add(this.label29);
-            this.tabPage2.Controls.Add(this.label28);
-            this.tabPage2.Controls.Add(this.label27);
-            this.tabPage2.Controls.Add(this.label23);
-            this.tabPage2.Controls.Add(this.label26);
-            this.tabPage2.Controls.Add(this.label24);
-            this.tabPage2.Controls.Add(this.label25);
-            this.tabPage2.Controls.Add(this.label22);
-            this.tabPage2.Controls.Add(this.label19);
-            this.tabPage2.Controls.Add(this.label20);
-            this.tabPage2.Controls.Add(this.label18);
-            this.tabPage2.Controls.Add(this.tbPosPago);
-            this.tabPage2.Controls.Add(this.tbPrePago);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(794, 460);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Plano / Pagamento";
+            this.tabPlanoPagamento.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabPlanoPagamento.Controls.Add(this.tbValidade);
+            this.tabPlanoPagamento.Controls.Add(this.btFinalizar);
+            this.tabPlanoPagamento.Controls.Add(this.gbFormaPagamento);
+            this.tabPlanoPagamento.Controls.Add(this.gbModeloTV);
+            this.tabPlanoPagamento.Controls.Add(this.groupBox3);
+            this.tabPlanoPagamento.Controls.Add(this.tbQtdPos);
+            this.tabPlanoPagamento.Controls.Add(this.tbBanco);
+            this.tabPlanoPagamento.Controls.Add(this.tbAgencia);
+            this.tabPlanoPagamento.Controls.Add(this.tbConta);
+            this.tabPlanoPagamento.Controls.Add(this.tbNumeroCartao);
+            this.tabPlanoPagamento.Controls.Add(this.tbDataProposta);
+            this.tabPlanoPagamento.Controls.Add(this.tbParcelas);
+            this.tabPlanoPagamento.Controls.Add(this.tbTaxaAdesao);
+            this.tabPlanoPagamento.Controls.Add(this.tbQtdPre);
+            this.tabPlanoPagamento.Controls.Add(this.label21);
+            this.tabPlanoPagamento.Controls.Add(this.label29);
+            this.tabPlanoPagamento.Controls.Add(this.label28);
+            this.tabPlanoPagamento.Controls.Add(this.label27);
+            this.tabPlanoPagamento.Controls.Add(this.label23);
+            this.tabPlanoPagamento.Controls.Add(this.label26);
+            this.tabPlanoPagamento.Controls.Add(this.label24);
+            this.tabPlanoPagamento.Controls.Add(this.label25);
+            this.tabPlanoPagamento.Controls.Add(this.label22);
+            this.tabPlanoPagamento.Controls.Add(this.label19);
+            this.tabPlanoPagamento.Controls.Add(this.label20);
+            this.tabPlanoPagamento.Controls.Add(this.label18);
+            this.tabPlanoPagamento.Controls.Add(this.tbPosPago);
+            this.tabPlanoPagamento.Controls.Add(this.tbPrePago);
+            this.tabPlanoPagamento.Location = new System.Drawing.Point(4, 22);
+            this.tabPlanoPagamento.Name = "tabPlanoPagamento";
+            this.tabPlanoPagamento.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPlanoPagamento.Size = new System.Drawing.Size(794, 460);
+            this.tabPlanoPagamento.TabIndex = 1;
+            this.tabPlanoPagamento.Text = "Plano / Pagamento";
             // 
             // tbVendedor
             // 
-            this.tbVendedor.Location = new System.Drawing.Point(688, 18);
+            this.tbVendedor.Location = new System.Drawing.Point(679, 22);
             this.tbVendedor.Name = "tbVendedor";
             this.tbVendedor.Size = new System.Drawing.Size(100, 20);
             this.tbVendedor.TabIndex = 0;
@@ -238,11 +238,11 @@
             // labelCodVendedor
             // 
             this.labelCodVendedor.AutoSize = true;
-            this.labelCodVendedor.Location = new System.Drawing.Point(603, 24);
+            this.labelCodVendedor.Location = new System.Drawing.Point(592, 25);
             this.labelCodVendedor.Name = "labelCodVendedor";
-            this.labelCodVendedor.Size = new System.Drawing.Size(78, 13);
+            this.labelCodVendedor.Size = new System.Drawing.Size(85, 13);
             this.labelCodVendedor.TabIndex = 1;
-            this.labelCodVendedor.Text = "Cod. Vendedor";
+            this.labelCodVendedor.Text = "Cod. Vendedor:*";
             // 
             // rbPessoaFisica
             // 
@@ -275,7 +275,7 @@
             this.groupBoxTipoPessoa.Size = new System.Drawing.Size(178, 40);
             this.groupBoxTipoPessoa.TabIndex = 5;
             this.groupBoxTipoPessoa.TabStop = false;
-            this.groupBoxTipoPessoa.Text = "Pessoa:";
+            this.groupBoxTipoPessoa.Text = "Pessoa:*";
             // 
             // tbNomeRazao
             // 
@@ -289,25 +289,18 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 67);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 13);
+            this.label1.Size = new System.Drawing.Size(84, 13);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Nome / Razão:";
-            // 
-            // tbNascimento
-            // 
-            this.tbNascimento.Location = new System.Drawing.Point(262, 25);
-            this.tbNascimento.Name = "tbNascimento";
-            this.tbNascimento.Size = new System.Drawing.Size(124, 20);
-            this.tbNascimento.TabIndex = 8;
+            this.label1.Text = "Nome / Razão:*";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(190, 27);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 13);
+            this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Nascimento:";
+            this.label2.Text = "Nascimento:*";
             // 
             // groupBoxSexo
             // 
@@ -318,7 +311,7 @@
             this.groupBoxSexo.Size = new System.Drawing.Size(178, 40);
             this.groupBoxSexo.TabIndex = 6;
             this.groupBoxSexo.TabStop = false;
-            this.groupBoxSexo.Text = "Sexo:";
+            this.groupBoxSexo.Text = "Sexo:*";
             // 
             // rbMasculino
             // 
@@ -342,21 +335,14 @@
             this.rbFeminino.Text = "Feminino";
             this.rbFeminino.UseVisualStyleBackColor = true;
             // 
-            // tbTelefoneFixo
-            // 
-            this.tbTelefoneFixo.Location = new System.Drawing.Point(86, 103);
-            this.tbTelefoneFixo.Name = "tbTelefoneFixo";
-            this.tbTelefoneFixo.Size = new System.Drawing.Size(142, 20);
-            this.tbTelefoneFixo.TabIndex = 10;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 105);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 13);
+            this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 11;
-            this.label3.Text = "Telefone Fixo:";
+            this.label3.Text = "Telefone Fixo:*";
             // 
             // tbEmail
             // 
@@ -370,37 +356,30 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(477, 64);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.Size = new System.Drawing.Size(39, 13);
             this.label4.TabIndex = 11;
-            this.label4.Text = "Email:";
-            // 
-            // tbTelefoneMovel
-            // 
-            this.tbTelefoneMovel.Location = new System.Drawing.Point(324, 103);
-            this.tbTelefoneMovel.Name = "tbTelefoneMovel";
-            this.tbTelefoneMovel.Size = new System.Drawing.Size(157, 20);
-            this.tbTelefoneMovel.TabIndex = 10;
+            this.label4.Text = "Email:*";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(234, 106);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 13);
+            this.label5.Size = new System.Drawing.Size(88, 13);
             this.label5.TabIndex = 11;
-            this.label5.Text = "Telefone Móvel:";
+            this.label5.Text = "Telefone Móvel:*";
             // 
-            // groupBox1
+            // gbEstadoCivil
             // 
-            this.groupBox1.Controls.Add(this.rbCasado);
-            this.groupBox1.Controls.Add(this.rbOutros);
-            this.groupBox1.Controls.Add(this.rbSolteiro);
-            this.groupBox1.Location = new System.Drawing.Point(501, 94);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(250, 40);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Estado Civil:";
+            this.gbEstadoCivil.Controls.Add(this.rbCasado);
+            this.gbEstadoCivil.Controls.Add(this.rbOutros);
+            this.gbEstadoCivil.Controls.Add(this.rbSolteiro);
+            this.gbEstadoCivil.Location = new System.Drawing.Point(501, 94);
+            this.gbEstadoCivil.Name = "gbEstadoCivil";
+            this.gbEstadoCivil.Size = new System.Drawing.Size(250, 40);
+            this.gbEstadoCivil.TabIndex = 6;
+            this.gbEstadoCivil.TabStop = false;
+            this.gbEstadoCivil.Text = "Estado Civil:";
             // 
             // rbCasado
             // 
@@ -435,21 +414,14 @@
             this.rbOutros.Text = "Outros";
             this.rbOutros.UseVisualStyleBackColor = true;
             // 
-            // tbCpfCpnj
-            // 
-            this.tbCpfCpnj.Location = new System.Drawing.Point(86, 145);
-            this.tbCpfCpnj.Name = "tbCpfCpnj";
-            this.tbCpfCpnj.Size = new System.Drawing.Size(243, 20);
-            this.tbCpfCpnj.TabIndex = 6;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(6, 149);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 13);
+            this.label6.Size = new System.Drawing.Size(72, 13);
             this.label6.TabIndex = 7;
-            this.label6.Text = "CPF / CNPJ:";
+            this.label6.Text = "CPF / CNPJ:*";
             // 
             // tbRGIncsEstRNE
             // 
@@ -463,20 +435,20 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(352, 149);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(112, 13);
+            this.label8.Size = new System.Drawing.Size(116, 13);
             this.label8.TabIndex = 7;
-            this.label8.Text = "RG / Insc. Est / RNE:";
+            this.label8.Text = "RG / Insc. Est / RNE:*";
             // 
-            // groupBox2
+            // gbTipoImovel
             // 
-            this.groupBox2.Controls.Add(this.rbApartamento);
-            this.groupBox2.Controls.Add(this.rbCasa);
-            this.groupBox2.Location = new System.Drawing.Point(9, 188);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(178, 40);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Tipo de Imóvel:";
+            this.gbTipoImovel.Controls.Add(this.rbApartamento);
+            this.gbTipoImovel.Controls.Add(this.rbCasa);
+            this.gbTipoImovel.Location = new System.Drawing.Point(9, 188);
+            this.gbTipoImovel.Name = "gbTipoImovel";
+            this.gbTipoImovel.Size = new System.Drawing.Size(178, 40);
+            this.gbTipoImovel.TabIndex = 5;
+            this.gbTipoImovel.TabStop = false;
+            this.gbTipoImovel.Text = "Tipo de Imóvel:*";
             // 
             // rbApartamento
             // 
@@ -516,21 +488,14 @@
             this.label7.TabIndex = 7;
             this.label7.Text = "Nome do Edifício:";
             // 
-            // tbCep
-            // 
-            this.tbCep.Location = new System.Drawing.Point(587, 200);
-            this.tbCep.Name = "tbCep";
-            this.tbCep.Size = new System.Drawing.Size(124, 20);
-            this.tbCep.TabIndex = 8;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(546, 204);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(31, 13);
+            this.label9.Size = new System.Drawing.Size(35, 13);
             this.label9.TabIndex = 9;
-            this.label9.Text = "CEP:";
+            this.label9.Text = "CEP:*";
             // 
             // tbEndereco
             // 
@@ -544,18 +509,18 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(10, 246);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(59, 13);
+            this.label10.Size = new System.Drawing.Size(63, 13);
             this.label10.TabIndex = 7;
-            this.label10.Text = "Endereço: ";
+            this.label10.Text = "Endereço: *";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(428, 246);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(37, 13);
+            this.label11.Size = new System.Drawing.Size(41, 13);
             this.label11.TabIndex = 9;
-            this.label11.Text = "Bairro:";
+            this.label11.Text = "Bairro:*";
             // 
             // tbBairro
             // 
@@ -569,9 +534,9 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(685, 246);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(22, 13);
+            this.label12.Size = new System.Drawing.Size(26, 13);
             this.label12.TabIndex = 9;
-            this.label12.Text = "N°:";
+            this.label12.Text = "N°:*";
             // 
             // tbNumero
             // 
@@ -624,9 +589,9 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(10, 312);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(43, 13);
+            this.label15.Size = new System.Drawing.Size(47, 13);
             this.label15.TabIndex = 9;
-            this.label15.Text = "Cidade:";
+            this.label15.Text = "Cidade:*";
             // 
             // label16
             // 
@@ -649,9 +614,9 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(694, 316);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(24, 13);
+            this.label17.Size = new System.Drawing.Size(28, 13);
             this.label17.TabIndex = 9;
-            this.label17.Text = "UF:";
+            this.label17.Text = "UF:*";
             // 
             // tbUF
             // 
@@ -680,7 +645,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(442, 37);
+            this.label19.Location = new System.Drawing.Point(445, 37);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(88, 13);
             this.label19.TabIndex = 1;
@@ -713,7 +678,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(446, 137);
+            this.label21.Location = new System.Drawing.Point(445, 137);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(88, 13);
             this.label21.TabIndex = 1;
@@ -721,7 +686,7 @@
             // 
             // tbQtdPos
             // 
-            this.tbQtdPos.Location = new System.Drawing.Point(464, 169);
+            this.tbQtdPos.Location = new System.Drawing.Point(464, 163);
             this.tbQtdPos.Name = "tbQtdPos";
             this.tbQtdPos.Size = new System.Drawing.Size(50, 20);
             this.tbQtdPos.TabIndex = 2;
@@ -737,29 +702,29 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Banda Larga";
             // 
-            // groupBox4
+            // gbModeloTV
             // 
-            this.groupBox4.Controls.Add(this.rbModeloTvHd);
-            this.groupBox4.Controls.Add(this.rbModeloTvSd);
-            this.groupBox4.Location = new System.Drawing.Point(606, 137);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(130, 75);
-            this.groupBox4.TabIndex = 3;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Modelo da TV";
+            this.gbModeloTV.Controls.Add(this.rbModeloTvHd);
+            this.gbModeloTV.Controls.Add(this.rbModeloTvSd);
+            this.gbModeloTV.Location = new System.Drawing.Point(606, 137);
+            this.gbModeloTV.Name = "gbModeloTV";
+            this.gbModeloTV.Size = new System.Drawing.Size(130, 75);
+            this.gbModeloTV.TabIndex = 3;
+            this.gbModeloTV.TabStop = false;
+            this.gbModeloTV.Text = "Modelo da TV:*";
             // 
-            // groupBox5
+            // gbFormaPagamento
             // 
-            this.groupBox5.Controls.Add(this.rbAvista);
-            this.groupBox5.Controls.Add(this.rbBoleto);
-            this.groupBox5.Controls.Add(this.rbDebitoCc);
-            this.groupBox5.Controls.Add(this.rbCartaoCredito);
-            this.groupBox5.Location = new System.Drawing.Point(20, 235);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(416, 53);
-            this.groupBox5.TabIndex = 3;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Forma de Pagamento";
+            this.gbFormaPagamento.Controls.Add(this.rbAvista);
+            this.gbFormaPagamento.Controls.Add(this.rbBoleto);
+            this.gbFormaPagamento.Controls.Add(this.rbDebitoCc);
+            this.gbFormaPagamento.Controls.Add(this.rbCartaoCredito);
+            this.gbFormaPagamento.Location = new System.Drawing.Point(20, 235);
+            this.gbFormaPagamento.Name = "gbFormaPagamento";
+            this.gbFormaPagamento.Size = new System.Drawing.Size(416, 53);
+            this.gbFormaPagamento.TabIndex = 3;
+            this.gbFormaPagamento.TabStop = false;
+            this.gbFormaPagamento.Text = "Forma de Pagamento:*";
             // 
             // rbCartaoCredito
             // 
@@ -829,13 +794,6 @@
             this.label23.Size = new System.Drawing.Size(51, 13);
             this.label23.TabIndex = 1;
             this.label23.Text = "Validade:";
-            // 
-            // tbValidade
-            // 
-            this.tbValidade.Location = new System.Drawing.Point(503, 309);
-            this.tbValidade.Name = "tbValidade";
-            this.tbValidade.Size = new System.Drawing.Size(76, 20);
-            this.tbValidade.TabIndex = 2;
             // 
             // label24
             // 
@@ -935,21 +893,23 @@
             // 
             // btProximo
             // 
-            this.btProximo.Location = new System.Drawing.Point(355, 406);
+            this.btProximo.Location = new System.Drawing.Point(355, 386);
             this.btProximo.Name = "btProximo";
             this.btProximo.Size = new System.Drawing.Size(91, 39);
             this.btProximo.TabIndex = 1;
             this.btProximo.Text = "Próximo";
             this.btProximo.UseVisualStyleBackColor = true;
+            this.btProximo.Click += new System.EventHandler(this.btProximo_Click);
             // 
             // btFinalizar
             // 
-            this.btFinalizar.Location = new System.Drawing.Point(654, 385);
+            this.btFinalizar.Location = new System.Drawing.Point(661, 374);
             this.btFinalizar.Name = "btFinalizar";
             this.btFinalizar.Size = new System.Drawing.Size(110, 51);
             this.btFinalizar.TabIndex = 4;
             this.btFinalizar.Text = "Finalizar";
             this.btFinalizar.UseVisualStyleBackColor = true;
+            this.btFinalizar.Click += new System.EventHandler(this.btFinalizar_Click);
             // 
             // rbModeloTvSd
             // 
@@ -995,50 +955,97 @@
             this.rbModeloTvHd.Text = "HD";
             this.rbModeloTvHd.UseVisualStyleBackColor = true;
             // 
+            // tbNascimento
+            // 
+            this.tbNascimento.Location = new System.Drawing.Point(266, 25);
+            this.tbNascimento.Mask = "00/00/0000";
+            this.tbNascimento.Name = "tbNascimento";
+            this.tbNascimento.Size = new System.Drawing.Size(121, 20);
+            this.tbNascimento.TabIndex = 12;
+            this.tbNascimento.ValidatingType = typeof(System.DateTime);
+            // 
+            // tbTelefoneFixo
+            // 
+            this.tbTelefoneFixo.Location = new System.Drawing.Point(86, 103);
+            this.tbTelefoneFixo.Mask = "(99) 90000-0000";
+            this.tbTelefoneFixo.Name = "tbTelefoneFixo";
+            this.tbTelefoneFixo.Size = new System.Drawing.Size(142, 20);
+            this.tbTelefoneFixo.TabIndex = 13;
+            // 
+            // tbTelefoneMovel
+            // 
+            this.tbTelefoneMovel.Location = new System.Drawing.Point(328, 103);
+            this.tbTelefoneMovel.Mask = "(99) 90000-0000";
+            this.tbTelefoneMovel.Name = "tbTelefoneMovel";
+            this.tbTelefoneMovel.Size = new System.Drawing.Size(150, 20);
+            this.tbTelefoneMovel.TabIndex = 13;
+            // 
+            // tbCep
+            // 
+            this.tbCep.Location = new System.Drawing.Point(594, 201);
+            this.tbCep.Mask = "00000-000";
+            this.tbCep.Name = "tbCep";
+            this.tbCep.Size = new System.Drawing.Size(150, 20);
+            this.tbCep.TabIndex = 13;
+            // 
+            // tbValidade
+            // 
+            this.tbValidade.Location = new System.Drawing.Point(503, 309);
+            this.tbValidade.Mask = "00/00";
+            this.tbValidade.Name = "tbValidade";
+            this.tbValidade.Size = new System.Drawing.Size(72, 20);
+            this.tbValidade.TabIndex = 5;
+            // 
+            // tbCpfCnpj
+            // 
+            this.tbCpfCnpj.Location = new System.Drawing.Point(86, 145);
+            this.tbCpfCnpj.Name = "tbCpfCnpj";
+            this.tbCpfCnpj.Size = new System.Drawing.Size(243, 20);
+            this.tbCpfCnpj.TabIndex = 14;
+            // 
             // Contract
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(825, 533);
-            this.Controls.Add(this.tabControlDadosCliente);
+            this.Controls.Add(this.tabControlContrato);
             this.Name = "Contract";
             this.Text = "Contrato";
             this.Load += new System.EventHandler(this.Contract_Load);
-            this.tabControlDadosCliente.ResumeLayout(false);
-            this.tabPageDadosConsumidor.ResumeLayout(false);
-            this.tabPageDadosConsumidor.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tabControlContrato.ResumeLayout(false);
+            this.tabDadosConsumidor.ResumeLayout(false);
+            this.tabDadosConsumidor.PerformLayout();
+            this.tabPlanoPagamento.ResumeLayout(false);
+            this.tabPlanoPagamento.PerformLayout();
             this.groupBoxTipoPessoa.ResumeLayout(false);
             this.groupBoxTipoPessoa.PerformLayout();
             this.groupBoxSexo.ResumeLayout(false);
             this.groupBoxSexo.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbEstadoCivil.ResumeLayout(false);
+            this.gbEstadoCivil.PerformLayout();
+            this.gbTipoImovel.ResumeLayout(false);
+            this.gbTipoImovel.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
+            this.gbModeloTV.ResumeLayout(false);
+            this.gbModeloTV.PerformLayout();
+            this.gbFormaPagamento.ResumeLayout(false);
+            this.gbFormaPagamento.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControlDadosCliente;
-        private System.Windows.Forms.TabPage tabPageDadosConsumidor;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabControl tabControlContrato;
+        private System.Windows.Forms.TabPage tabDadosConsumidor;
+        private System.Windows.Forms.TabPage tabPlanoPagamento;
         private System.Windows.Forms.Label labelCodVendedor;
         private System.Windows.Forms.TextBox tbVendedor;
         private System.Windows.Forms.RadioButton rbPessoaJuridica;
         private System.Windows.Forms.RadioButton rbPessoaFisica;
         private System.Windows.Forms.GroupBox groupBoxTipoPessoa;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbNascimento;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbNomeRazao;
         private System.Windows.Forms.GroupBox groupBoxSexo;
@@ -1047,24 +1054,20 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbTelefoneMovel;
         private System.Windows.Forms.TextBox tbEmail;
-        private System.Windows.Forms.TextBox tbTelefoneFixo;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbEstadoCivil;
         private System.Windows.Forms.RadioButton rbCasado;
         private System.Windows.Forms.RadioButton rbOutros;
         private System.Windows.Forms.RadioButton rbSolteiro;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbRGIncsEstRNE;
-        private System.Windows.Forms.TextBox tbCpfCpnj;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbNomeEdificio;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbTipoImovel;
         private System.Windows.Forms.RadioButton rbApartamento;
         private System.Windows.Forms.RadioButton rbCasa;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox tbCep;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tbEndereco;
@@ -1090,8 +1093,8 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox tbPosPago;
         private System.Windows.Forms.TextBox tbPrePago;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox gbModeloTV;
+        private System.Windows.Forms.GroupBox gbFormaPagamento;
         private System.Windows.Forms.RadioButton rbAvista;
         private System.Windows.Forms.RadioButton rbBoleto;
         private System.Windows.Forms.RadioButton rbDebitoCc;
@@ -1101,7 +1104,6 @@
         private System.Windows.Forms.TextBox tbBanco;
         private System.Windows.Forms.TextBox tbAgencia;
         private System.Windows.Forms.TextBox tbConta;
-        private System.Windows.Forms.TextBox tbValidade;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
@@ -1118,5 +1120,11 @@
         private System.Windows.Forms.RadioButton rbModeloTvSd;
         private System.Windows.Forms.RadioButton rbBandaLarga2;
         private System.Windows.Forms.RadioButton rbBandaLarga4;
+        private System.Windows.Forms.MaskedTextBox tbNascimento;
+        private System.Windows.Forms.MaskedTextBox tbCep;
+        private System.Windows.Forms.MaskedTextBox tbTelefoneMovel;
+        private System.Windows.Forms.MaskedTextBox tbTelefoneFixo;
+        private System.Windows.Forms.MaskedTextBox tbValidade;
+        private System.Windows.Forms.MaskedTextBox tbCpfCnpj;
     }
 }
