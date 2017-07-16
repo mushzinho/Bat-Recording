@@ -77,6 +77,11 @@ namespace BatRecording
 
                 StartCapture(WavOut);
                 ToggleRecordButton();
+                Contract contract = new Contract();
+                if( contract.ShowDialog() == DialogResult.OK)
+                {
+                    MessageBox.Show(contract.TextToBeSaved);
+                }
 
             }
             else
@@ -204,6 +209,7 @@ Essa ação não pode ser desfeita.", @"Apagar gravação ?", MessageBoxButtons.
 
         private void mainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
+            this.StopCapture();
             if (!_ghk.Unregiser() || !_ghk1.Unregiser())
                 MessageBox.Show(@"Hotkey failed to unregister!");
 

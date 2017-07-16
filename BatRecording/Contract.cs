@@ -12,6 +12,14 @@ namespace BatRecording
 {
     public partial class Contract : Form
     {
+        public string TextToBeSaved;
+        private RadioButton _rbTipoPessoa;
+        private RadioButton _rbSexo;
+        private RadioButton _rbEstadoCivil;
+        private RadioButton _rbTipoImovel;
+        private RadioButton _rbFormaPagamento;
+        private RadioButton _rbModeloTv;
+
         public Contract()
         {
             InitializeComponent();
@@ -31,7 +39,12 @@ namespace BatRecording
             //Tipo Pessoa
             foreach (var radioButton in this.groupBoxTipoPessoa.Controls.OfType<RadioButton>())
             {
-                if (radioButton.Checked) hasSomeChecked = true;
+                if (radioButton.Checked)
+                {
+                    hasSomeChecked = true;
+                    _rbTipoPessoa = radioButton;
+                    break;
+                }
            
             }
             if (!hasSomeChecked) hasError = true;
@@ -44,7 +57,12 @@ namespace BatRecording
             //Sexo
             foreach (var radioButton in this.groupBoxSexo.Controls.OfType<RadioButton>())
             {
-                if (radioButton.Checked) hasSomeChecked = true;
+                if (radioButton.Checked)
+                {
+                    hasSomeChecked = true;
+                    _rbSexo = radioButton;
+                    break;
+                }
 
             }
             if (!hasSomeChecked) hasError = true;
@@ -64,7 +82,12 @@ namespace BatRecording
             //Estado Civil
             foreach (var radioButton in this.gbEstadoCivil.Controls.OfType<RadioButton>())
             {
-                if (radioButton.Checked) hasSomeChecked = true;
+                if (radioButton.Checked)
+                {
+                    hasSomeChecked = true;
+                    _rbEstadoCivil = radioButton;
+                    break;
+                }
 
             }
             if (!hasSomeChecked) hasError = true;
@@ -78,7 +101,12 @@ namespace BatRecording
             //TipoImovel
             foreach (var radioButton in this.gbTipoImovel.Controls.OfType<RadioButton>())
             {
-                if (radioButton.Checked) hasSomeChecked = true;
+                if (radioButton.Checked)
+                {
+                    hasSomeChecked = true;
+                    _rbTipoImovel = radioButton;
+                    break;
+                }
 
             }
             if (!hasSomeChecked) hasError = true;
@@ -99,11 +127,11 @@ namespace BatRecording
 
 
 
-            return hasError;
+            return !hasError;
 
         }
 
-        public bool validateStepTwo()
+        public bool ValidateStepTwo()
         {
             bool hasError = false;
             bool hasSomeChecked = false;
@@ -111,7 +139,12 @@ namespace BatRecording
             //FormaPagamento
             foreach (var radioButton in this.gbFormaPagamento.Controls.OfType<RadioButton>())
             {
-                if (radioButton.Checked) hasSomeChecked = true;
+                if (radioButton.Checked)
+                {
+                    hasSomeChecked = true;
+                    _rbFormaPagamento = radioButton;
+                    break;
+                }
 
             }
             if (!hasSomeChecked) hasError = true;
@@ -121,36 +154,96 @@ namespace BatRecording
             //Modelo TV
             foreach (var radioButton in this.gbModeloTV.Controls.OfType<RadioButton>())
             {
-                if (radioButton.Checked) hasSomeChecked = true;
+                if (radioButton.Checked)
+                {
+                    hasSomeChecked = true;
+                    _rbModeloTv = radioButton;
+                    break;
+                }
 
             }
             if (!hasSomeChecked) hasError = true;
             hasSomeChecked = false;
 
-            return hasError;
+            return !hasError;
         }
 
+        private void CreateTextString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Vendedor: " + tbVendedor.Text);
+            sb.AppendLine("Tipo de Pessoa: " + _rbTipoPessoa.Name);
+            sb.AppendLine("Nascimento: " + tbNascimento.Text);
+            sb.AppendLine("Sexo: " + _rbSexo.Name);
+            sb.AppendLine("Nome / Razão: " + tbNomeRazao.Text);
+            sb.AppendLine("Email: " + tbEmail.Text);
+            sb.AppendLine("Telefone Fixo: " + tbTelefoneFixo.Text);
+            sb.AppendLine("Telefone Móvel: " + tbTelefoneMovel.Text);
+            sb.AppendLine("Estado Civel: " + _rbEstadoCivil.Name);
+            sb.AppendLine("CPF / CNPJ: " + tbCpfCnpj.Text);
+            sb.AppendLine("RG / Insc Est / RNE: " + tbRGIncsEstRNE.Text);
+            sb.AppendLine("Tipo do Imóvel: " + _rbTipoImovel.Name);
+            sb.AppendLine("Nome do Edifício: " + tbNomeEdificio.Text);
+            sb.AppendLine("CEP: " + tbCep.Text);
+            sb.AppendLine("Endereço: " + tbEndereco.Text);
+            sb.AppendLine("Bairro: " + tbBairro.Text);
+            sb.AppendLine("Complemento: " + tbComplemento.Text);
+            sb.AppendLine("Condomínio: " + tbCondominio.Text);
+            sb.AppendLine("Cidade: " + tbCidade.Text);
+            sb.AppendLine("Pto. de Referência: " + tbReferencia.Text);
+            sb.AppendLine("Pré-Pago: " + tbPrePago.Text);
+            sb.AppendLine("Qtd Pré-Pago: " + tbQtdPre.Text);
+            sb.AppendLine("Pós-Pago: " + tbPosPago.Text);
+            sb.AppendLine("Qtd Pós-Pago: " + tbQtdPos.Text);
+            sb.AppendLine("Qtd Pós-Pago: " + tbQtdPos.Text);
+
+            foreach (var radioButton in this.gbBandaLarga.Controls.OfType<RadioButton>())
+            {
+                if (radioButton.Checked)
+                {
+                    sb.AppendLine("Banda Larga: " + radioButton.Name);
+                }
+
+            }
+            sb.AppendLine("Modelo TV: " + _rbModeloTv.Name);
+            sb.AppendLine("Forma de Pagamento: " + _rbFormaPagamento.Name);
+            sb.AppendLine("Número do Cartão: " + tbNumeroCartao.Text);
+            sb.AppendLine("Validade: " + tbValidade.Text);
+            sb.AppendLine("Agencia: " + tbAgencia.Text);
+            sb.AppendLine("Conta: " + tbConta.Text);
+            sb.AppendLine("Banco: " + tbBanco.Text);
+            sb.AppendLine("Taxa de Adesão / Inst: " + tbTaxaAdesao.Text);
+            sb.AppendLine("Parcelas: " + tbParcelas.Text);
+            sb.AppendLine("Data da Proposta: " + tbDataProposta.Text);
+
+            this.TextToBeSaved = sb.ToString();
+
+
+
+        }
         private void btProximo_Click(object sender, EventArgs e)
         {
             if (ValidateStepOne())
             {
-                MessageBox.Show(@"ERRO: Todos revise todos os campos com *");
+                tabControlContrato.SelectTab(tabPlanoPagamento);
+                
             }
             else
             {
-                tabControlContrato.SelectTab(tabPlanoPagamento);
+                MessageBox.Show(@"ERRO: Revise todos os campos com *");
             }
         }
 
         private void btFinalizar_Click(object sender, EventArgs e)
         {
-            if (validateStepTwo())
+            if (ValidateStepTwo() && ValidateStepTwo() )
             {
-                MessageBox.Show(@"ERRO: Todos revise todos os campos com *");
+                this.CreateTextString();
+                this.DialogResult = DialogResult.OK;
             }
             else
             {
-                //
+                MessageBox.Show(@"ERRO: Revise todos os campos com *");
             }
         }
     }

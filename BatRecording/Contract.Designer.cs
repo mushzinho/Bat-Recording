@@ -83,7 +83,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.tbQtdPos = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gbBandaLarga = new System.Windows.Forms.GroupBox();
             this.gbModeloTV = new System.Windows.Forms.GroupBox();
             this.gbFormaPagamento = new System.Windows.Forms.GroupBox();
             this.rbCartaoCredito = new System.Windows.Forms.RadioButton();
@@ -103,7 +103,6 @@
             this.tbTaxaAdesao = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.tbParcelas = new System.Windows.Forms.TextBox();
-            this.tbDataProposta = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.btProximo = new System.Windows.Forms.Button();
             this.btFinalizar = new System.Windows.Forms.Button();
@@ -117,6 +116,7 @@
             this.tbCep = new System.Windows.Forms.MaskedTextBox();
             this.tbValidade = new System.Windows.Forms.MaskedTextBox();
             this.tbCpfCnpj = new System.Windows.Forms.MaskedTextBox();
+            this.tbDataProposta = new System.Windows.Forms.MaskedTextBox();
             this.tabControlContrato.SuspendLayout();
             this.tabDadosConsumidor.SuspendLayout();
             this.tabPlanoPagamento.SuspendLayout();
@@ -124,7 +124,7 @@
             this.groupBoxSexo.SuspendLayout();
             this.gbEstadoCivil.SuspendLayout();
             this.gbTipoImovel.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.gbBandaLarga.SuspendLayout();
             this.gbModeloTV.SuspendLayout();
             this.gbFormaPagamento.SuspendLayout();
             this.SuspendLayout();
@@ -193,17 +193,17 @@
             // tabPlanoPagamento
             // 
             this.tabPlanoPagamento.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabPlanoPagamento.Controls.Add(this.tbDataProposta);
             this.tabPlanoPagamento.Controls.Add(this.tbValidade);
             this.tabPlanoPagamento.Controls.Add(this.btFinalizar);
             this.tabPlanoPagamento.Controls.Add(this.gbFormaPagamento);
             this.tabPlanoPagamento.Controls.Add(this.gbModeloTV);
-            this.tabPlanoPagamento.Controls.Add(this.groupBox3);
+            this.tabPlanoPagamento.Controls.Add(this.gbBandaLarga);
             this.tabPlanoPagamento.Controls.Add(this.tbQtdPos);
             this.tabPlanoPagamento.Controls.Add(this.tbBanco);
             this.tabPlanoPagamento.Controls.Add(this.tbAgencia);
             this.tabPlanoPagamento.Controls.Add(this.tbConta);
             this.tabPlanoPagamento.Controls.Add(this.tbNumeroCartao);
-            this.tabPlanoPagamento.Controls.Add(this.tbDataProposta);
             this.tabPlanoPagamento.Controls.Add(this.tbParcelas);
             this.tabPlanoPagamento.Controls.Add(this.tbTaxaAdesao);
             this.tabPlanoPagamento.Controls.Add(this.tbQtdPre);
@@ -691,16 +691,16 @@
             this.tbQtdPos.Size = new System.Drawing.Size(50, 20);
             this.tbQtdPos.TabIndex = 2;
             // 
-            // groupBox3
+            // gbBandaLarga
             // 
-            this.groupBox3.Controls.Add(this.rbBandaLarga2);
-            this.groupBox3.Controls.Add(this.rbBandaLarga4);
-            this.groupBox3.Location = new System.Drawing.Point(612, 37);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(117, 75);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Banda Larga";
+            this.gbBandaLarga.Controls.Add(this.rbBandaLarga2);
+            this.gbBandaLarga.Controls.Add(this.rbBandaLarga4);
+            this.gbBandaLarga.Location = new System.Drawing.Point(612, 37);
+            this.gbBandaLarga.Name = "gbBandaLarga";
+            this.gbBandaLarga.Size = new System.Drawing.Size(117, 75);
+            this.gbBandaLarga.TabIndex = 3;
+            this.gbBandaLarga.TabStop = false;
+            this.gbBandaLarga.Text = "Banda Larga";
             // 
             // gbModeloTV
             // 
@@ -784,7 +784,7 @@
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(99, 13);
             this.label22.TabIndex = 1;
-            this.label22.Text = "Numero do Cartão: ";
+            this.label22.Text = "Número do Cartão: ";
             // 
             // label23
             // 
@@ -874,13 +874,6 @@
             this.tbParcelas.Name = "tbParcelas";
             this.tbParcelas.Size = new System.Drawing.Size(65, 20);
             this.tbParcelas.TabIndex = 2;
-            // 
-            // tbDataProposta
-            // 
-            this.tbDataProposta.Location = new System.Drawing.Point(476, 420);
-            this.tbDataProposta.Name = "tbDataProposta";
-            this.tbDataProposta.Size = new System.Drawing.Size(99, 20);
-            this.tbDataProposta.TabIndex = 2;
             // 
             // label29
             // 
@@ -1003,6 +996,15 @@
             this.tbCpfCnpj.Size = new System.Drawing.Size(243, 20);
             this.tbCpfCnpj.TabIndex = 14;
             // 
+            // tbDataProposta
+            // 
+            this.tbDataProposta.Location = new System.Drawing.Point(493, 421);
+            this.tbDataProposta.Mask = "00/00/0000";
+            this.tbDataProposta.Name = "tbDataProposta";
+            this.tbDataProposta.Size = new System.Drawing.Size(100, 20);
+            this.tbDataProposta.TabIndex = 6;
+            this.tbDataProposta.ValidatingType = typeof(System.DateTime);
+            // 
             // Contract
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1025,8 +1027,8 @@
             this.gbEstadoCivil.PerformLayout();
             this.gbTipoImovel.ResumeLayout(false);
             this.gbTipoImovel.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.gbBandaLarga.ResumeLayout(false);
+            this.gbBandaLarga.PerformLayout();
             this.gbModeloTV.ResumeLayout(false);
             this.gbModeloTV.PerformLayout();
             this.gbFormaPagamento.ResumeLayout(false);
@@ -1084,7 +1086,7 @@
         private System.Windows.Forms.TextBox tbReferencia;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox tbUF;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gbBandaLarga;
         private System.Windows.Forms.TextBox tbQtdPos;
         private System.Windows.Forms.TextBox tbQtdPre;
         private System.Windows.Forms.Label label21;
@@ -1112,7 +1114,6 @@
         private System.Windows.Forms.TextBox tbTaxaAdesao;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox tbDataProposta;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Button btProximo;
         private System.Windows.Forms.Button btFinalizar;
@@ -1126,5 +1127,6 @@
         private System.Windows.Forms.MaskedTextBox tbTelefoneFixo;
         private System.Windows.Forms.MaskedTextBox tbValidade;
         private System.Windows.Forms.MaskedTextBox tbCpfCnpj;
+        private System.Windows.Forms.MaskedTextBox tbDataProposta;
     }
 }
