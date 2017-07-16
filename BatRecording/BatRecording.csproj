@@ -32,6 +32,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>BatRecording.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>main.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CSCore, Version=1.2.1.1, Culture=neutral, PublicKeyToken=5a08f2b6f4415dea, processorArchitecture=MSIL">
       <HintPath>..\packages\CSCore.1.2.1.1\lib\net35-client\CSCore.dll</HintPath>
@@ -71,6 +77,12 @@
     <Compile Include="AdminPass.Designer.cs">
       <DependentUpon>AdminPass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract.Designer.cs">
+      <DependentUpon>Contract.cs</DependentUpon>
+    </Compile>
     <Compile Include="Employer.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -99,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminPass.resx">
       <DependentUpon>AdminPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract.resx">
+      <DependentUpon>Contract.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -132,6 +147,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="main.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
