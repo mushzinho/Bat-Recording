@@ -28,7 +28,6 @@ namespace BatRecording
         private IWriteable _writer;
         private IWaveSource _waveSource;
         private GlobalHotKey _ghk;
-        private GlobalHotKey _ghk1;
         private const string WavOut = "out.wav";
         private string _operatorData;
 
@@ -37,8 +36,6 @@ namespace BatRecording
             InitializeComponent();
             this.KeyPreview = true;
             this._ghk = new GlobalHotKey(Constants.SHIFT + Constants.CTRL, Keys.K , this);
-            this._ghk1 = new GlobalHotKey(Constants.SHIFT + Constants.CTRL, Keys.P, this);
-
 
         }
 
@@ -49,12 +46,17 @@ namespace BatRecording
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (!this._ghk.Register() || !this._ghk1.Register()) {
+            if (!this._ghk.Register()) {
                 throw new Exception("Não foi possivel registrar o atalho de escopo global");
             }
         }
 
-
+        private void CleanFiles()
+        {
+            File.Delete("out.mp3");
+            File.Delete("out.wav");
+            File.Delete("contrato.txt");
+        }
         private void ToggleRecordButton()
         {
             if (!this._recording)
@@ -82,22 +84,21 @@ namespace BatRecording
                 StopRecording();
 
                 var saveFileHelper = new SaveFileHelper();
-                var data = "Pablo Henrique:Pablo";
-                saveFileHelper.ConvertWithFfmpegAndSave(contract.ClientName, contract.CpfCnpj, data);
+                saveFileHelper.ConvertWithFfmpegAndGetUrl(contract.ClientName, contract.CpfCnpj, _operatorData);
+
                 SaveFileToFtpServer("out.mp3", saveFileHelper.OutFileNameComplete + ".mp3");
                 var fr = new StreamWriter(File.OpenWrite("contrato.txt"));
                 fr.Write(contract.TextToBeSaved);
                 fr.Close();
                 fr.Dispose();
                 SaveFileToFtpServer("contrato.txt", saveFileHelper.OutFileNameComplete + ".txt");
-                MessageBox.Show("OK");
+                this.CleanFiles();
+                MessageBox.Show(@"Salvo com sucesso.");
             }
             else
             {
                 StopRecording();
-            }
-              
-            
+            } 
 
         }
 
@@ -107,7 +108,7 @@ namespace BatRecording
           
             var manageFtp = new ManageFtp();
             var client = manageFtp.Client;
-            var upload = client.UploadFile(inputFile, "/" + @remoteFilePath, FtpExists.NoCheck, true);
+            var upload = client.UploadFile(inputFile, "/" + remoteFilePath, FtpExists.NoCheck, true);
             client.Disconnect();
             return upload;
         }
@@ -153,7 +154,7 @@ namespace BatRecording
         private void mainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.StopCapture();
-            if (!_ghk.Unregiser() || !_ghk1.Unregiser())
+            if (!_ghk.Unregiser())
                 MessageBox.Show(@"Hotkey failed to unregister!");
 
         }
@@ -181,15 +182,12 @@ namespace BatRecording
                 switch (GetKey(m.LParam))
                 {
                     case Keys.K:
-                        StartRecording();
+                        Record_Click(null, null);
                         break;
-                    case Keys.P:
-                        StopRecording();
-                        break;
+
                 }
             }
             base.WndProc(ref m);
         }
-
     }
 }

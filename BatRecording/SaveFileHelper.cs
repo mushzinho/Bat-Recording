@@ -13,7 +13,7 @@ namespace BatRecording
         private string _operatorBaseUrl;
         public string OutFileNameComplete;
 
-        public void ConvertWithFfmpegAndSave(string clientName, string cpfCnpj, string operatorData)
+        public void ConvertWithFfmpegAndGetUrl(string clientName, string cpfCnpj, string operatorData)
         {
 
 
@@ -27,7 +27,6 @@ namespace BatRecording
             this.OutFileNameComplete = this._operatorBaseUrl + Path.AltDirectorySeparatorChar +
                                            clientName + "_" + cpfCnpj + "_" + finalTime;
 
-            //Directory.CreateDirectory(this._operatorBaseUrl);
 
             var ffmpeg = new NReco.VideoConverter.FFMpegConverter();
             ffmpeg.ConvertMedia("out.wav", "out.mp3", NReco.VideoConverter.Format.mpeg);
