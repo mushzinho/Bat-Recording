@@ -17,8 +17,8 @@ namespace BatRecording
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Contract());
-          
+            Application.Run(new MainWindow());
+          /*
             LoginForm loginForm = new LoginForm();
             if (loginForm.ShowDialog() == DialogResult.OK)
             {
@@ -30,7 +30,7 @@ namespace BatRecording
             {
                 Application.Exit();
             }
-       
+       */
         }
     }
 }

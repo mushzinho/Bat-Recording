@@ -13,6 +13,8 @@ namespace BatRecording
     public partial class Contract : Form
     {
         public string TextToBeSaved;
+        public string ClientName;
+        public string CpfCnpj;
         private RadioButton _rbTipoPessoa;
         private RadioButton _rbSexo;
         private RadioButton _rbEstadoCivil;
@@ -239,6 +241,8 @@ namespace BatRecording
             if (ValidateStepTwo() && ValidateStepTwo() )
             {
                 this.CreateTextString();
+                this.ClientName = tbNomeRazao.Text;
+                this.CpfCnpj = tbCpfCnpj.Text;
                 this.DialogResult = DialogResult.OK;
             }
             else

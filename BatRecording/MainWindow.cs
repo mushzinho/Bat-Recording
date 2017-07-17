@@ -23,7 +23,7 @@ namespace BatRecording
 {
     public partial class MainWindow : Form
     {
-        private Boolean _recording = false;
+        private bool _recording = false;
         private WasapiCapture _soundIn;
         private IWriteable _writer;
         private IWaveSource _waveSource;
@@ -39,7 +39,6 @@ namespace BatRecording
             this._ghk = new GlobalHotKey(Constants.SHIFT + Constants.CTRL, Keys.K , this);
             this._ghk1 = new GlobalHotKey(Constants.SHIFT + Constants.CTRL, Keys.P, this);
 
-            new Employer().ChangePassword("login3", "pass4");
 
         }
 
@@ -54,6 +53,8 @@ namespace BatRecording
                 throw new Exception("Não foi possivel registrar o atalho de escopo global");
             }
         }
+
+
         private void ToggleRecordButton()
         {
             if (!this._recording)
@@ -69,30 +70,30 @@ namespace BatRecording
             }
         }
 
+
         private void Record_Click(object sender, EventArgs events)
         {
            
             if (!this._recording)
             {
 
-                StartCapture(WavOut);
-                ToggleRecordButton();
+                StartRecording();
+                /*
                 Contract contract = new Contract();
                 if( contract.ShowDialog() == DialogResult.OK)
                 {
                     MessageBox.Show(contract.TextToBeSaved);
                 }
-
+                */
             }
             else
             {
-                StopCapture();
-                ToggleRecordButton();
-                SaveFileRecorded();
+                StopRecording();
 
             }
 
         }
+
 
         private bool SaveFileToFtpServer(string sourceFileName)
         {
@@ -105,47 +106,6 @@ namespace BatRecording
             return upload;
         }
 
-        private void SaveFileRecorded()
-        {
-            var saveRecord = MessageBox.Show(@"Deseja salvar essa gravação?", @"Salvar gravação", MessageBoxButtons.YesNo);
-
-            if (saveRecord == DialogResult.Yes)
-            {
-                SaveAudioDialog saveAudio = new SaveAudioDialog(this._operatorData);
-                if (saveAudio.ShowDialog(this) == DialogResult.OK)
-                {
-                    if (SaveFileToFtpServer(saveAudio.OutFileNameComplete))
-                    {
-                        MessageBox.Show(@"Upload Completo");
-                    }
-                    
-                }
-                saveAudio.Dispose();
-
-            }
-            else
-            {
-                var deleteRecord = MessageBox.Show(@"Tem certeza que deseja apagar a gravação? 
-Essa ação não pode ser desfeita.", @"Apagar gravação ?", MessageBoxButtons.YesNo);
-                if (deleteRecord == DialogResult.Yes)
-                {
-                    if (File.Exists(@"out.wav"))
-                    {
-                        File.Delete(@"out.wav");
-                    }
-                }
-                else
-                {
-                    SaveAudioDialog saveAudio = new SaveAudioDialog(this._operatorData);
-                    if (saveAudio.ShowDialog(this) == DialogResult.OK)
-                    {
-                        MessageBox.Show(saveAudio.OutFileNameComplete);
-                    }
-                    saveAudio.Dispose();
-                }
-
-            }
-        }
 
         private void StartCapture(string fileName)
         {
@@ -183,29 +143,6 @@ Essa ação não pode ser desfeita.", @"Apagar gravação ?", MessageBoxButtons.
             }
         }
 
-        private void SkyCallCenter_Resize(object sender, EventArgs e)
-        {
-            if(this.WindowState == FormWindowState.Minimized)
-            {
-                this.NotifycationIcon.Visible = true;
-                this.NotifycationIcon.BalloonTipTitle = @"Bat Recording";
-                this.NotifycationIcon.BalloonTipText = "Minimizado \nPara Gravar Pressione CTRL+ SHIT + K";
-                this.NotifycationIcon.BalloonTipIcon = ToolTipIcon.Info;
-                this.NotifycationIcon.ShowBalloonTip(1000);
-                this.Hide();
-
-            }else if(this.WindowState == FormWindowState.Normal)
-            {
-                this.NotifycationIcon.Visible = false;
-            }
-        }
-
-        private void NotificationIcon_DoubleClick(object sender, MouseEventArgs e)
-        {
-            this.Show();
-            this.WindowState = FormWindowState.Normal;
-            
-        }
 
         private void mainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -217,13 +154,13 @@ Essa ação não pode ser desfeita.", @"Apagar gravação ?", MessageBoxButtons.
 
         private void StartRecording()
         {
-            //this.WindowState = FormWindowState.Minimized;
+
             this.NotifycationIcon.Visible = true;
             this.NotifycationIcon.BalloonTipTitle = @"Bat Recording";
             this.NotifycationIcon.BalloonTipText = "Gravando \nPara parar Pressione CTRL+ SHIT + P";
             this.NotifycationIcon.BalloonTipIcon = ToolTipIcon.Info;
             this.NotifycationIcon.ShowBalloonTip(2000);
-           // this.Hide();
+
             StartCapture(WavOut);
             ToggleRecordButton();
         }
@@ -231,7 +168,6 @@ Essa ação não pode ser desfeita.", @"Apagar gravação ?", MessageBoxButtons.
         {
             StopCapture();
             ToggleRecordButton();
-            SaveFileRecorded();
         }
 
         private Keys GetKey(IntPtr LParam)
@@ -255,5 +191,6 @@ Essa ação não pode ser desfeita.", @"Apagar gravação ?", MessageBoxButtons.
             }
             base.WndProc(ref m);
         }
+
     }
 }
