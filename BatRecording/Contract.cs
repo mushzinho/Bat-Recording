@@ -248,15 +248,7 @@ namespace BatRecording
             sb.AppendLine("Qtd Pré-Pago: " + tbQtdPre.Text);
             sb.AppendLine("Pós-Pago: " + tbPosPago.Text);
             sb.AppendLine("Qtd Pós-Pago: " + tbQtdPos.Text);
-
-            foreach (var radioButton in this.gbBandaLarga.Controls.OfType<RadioButton>())
-            {
-                if (radioButton.Checked)
-                {
-                    sb.AppendLine("Banda Larga: " + radioButton.Text);
-                }
-
-            }
+            sb.AppendLine("Banda Larga: " + _rbBandaLarga.Text);
             sb.AppendLine("Modelo TV: " + _rbModeloTv.Text);
             sb.AppendLine("Forma de Pagamento: " + _rbFormaPagamento.Text);
             sb.AppendLine("Número do Cartão: " + tbNumeroCartao.Text);
@@ -317,7 +309,7 @@ namespace BatRecording
         private void tbCpfCnpj_KeyPress(object sender, KeyPressEventArgs e)
         {
             
-            if ((Keys)e.KeyChar == Keys.Back || (Keys)e.KeyChar == Keys.Space || e.KeyChar == '.') return;
+            if ((Keys)e.KeyChar == Keys.Back || (Keys)e.KeyChar == Keys.Space || e.KeyChar == '.' || e.KeyChar == '-') return;
             e.Handled = !char.IsDigit(e.KeyChar);
         }
 
