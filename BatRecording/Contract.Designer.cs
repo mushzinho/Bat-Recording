@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Contract));
             this.tabControlContrato = new System.Windows.Forms.TabControl();
             this.tabDadosConsumidor = new System.Windows.Forms.TabPage();
             this.tbCpfCnpj = new System.Windows.Forms.MaskedTextBox();
@@ -197,6 +198,7 @@
             this.tbCpfCnpj.Name = "tbCpfCnpj";
             this.tbCpfCnpj.Size = new System.Drawing.Size(243, 20);
             this.tbCpfCnpj.TabIndex = 14;
+            this.tbCpfCnpj.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCpfCnpj_KeyPress);
             // 
             // tbCep
             // 
@@ -413,6 +415,7 @@
             this.tbCidade.Name = "tbCidade";
             this.tbCidade.Size = new System.Drawing.Size(195, 20);
             this.tbCidade.TabIndex = 8;
+            this.tbCidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCidade_KeyPress);
             // 
             // tbBairro
             // 
@@ -420,6 +423,7 @@
             this.tbBairro.Name = "tbBairro";
             this.tbBairro.Size = new System.Drawing.Size(195, 20);
             this.tbBairro.TabIndex = 8;
+            this.tbBairro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbBairro_KeyPress);
             // 
             // tbUF
             // 
@@ -427,6 +431,7 @@
             this.tbUF.Name = "tbUF";
             this.tbUF.Size = new System.Drawing.Size(55, 20);
             this.tbUF.TabIndex = 8;
+            this.tbUF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbUF_KeyPress);
             // 
             // tbNumero
             // 
@@ -434,6 +439,7 @@
             this.tbNumero.Name = "tbNumero";
             this.tbNumero.Size = new System.Drawing.Size(55, 20);
             this.tbNumero.TabIndex = 8;
+            this.tbNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNumero_KeyPress);
             // 
             // label8
             // 
@@ -513,6 +519,7 @@
             this.tbReferencia.Name = "tbReferencia";
             this.tbReferencia.Size = new System.Drawing.Size(286, 20);
             this.tbReferencia.TabIndex = 6;
+            this.tbReferencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbReferencia_KeyPress);
             // 
             // tbComplemento
             // 
@@ -520,6 +527,7 @@
             this.tbComplemento.Name = "tbComplemento";
             this.tbComplemento.Size = new System.Drawing.Size(332, 20);
             this.tbComplemento.TabIndex = 6;
+            this.tbComplemento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbComplemento_KeyPress);
             // 
             // tbEndereco
             // 
@@ -527,6 +535,7 @@
             this.tbEndereco.Name = "tbEndereco";
             this.tbEndereco.Size = new System.Drawing.Size(347, 20);
             this.tbEndereco.TabIndex = 6;
+            this.tbEndereco.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbEndereco_KeyPress);
             // 
             // tbRGIncsEstRNE
             // 
@@ -534,6 +543,7 @@
             this.tbRGIncsEstRNE.Name = "tbRGIncsEstRNE";
             this.tbRGIncsEstRNE.Size = new System.Drawing.Size(293, 20);
             this.tbRGIncsEstRNE.TabIndex = 6;
+            this.tbRGIncsEstRNE.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbRGIncsEstRNE_KeyPress);
             // 
             // tbCondominio
             // 
@@ -541,6 +551,7 @@
             this.tbCondominio.Name = "tbCondominio";
             this.tbCondominio.Size = new System.Drawing.Size(243, 20);
             this.tbCondominio.TabIndex = 6;
+            this.tbCondominio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCondominio_KeyPress);
             // 
             // tbNomeEdificio
             // 
@@ -548,6 +559,7 @@
             this.tbNomeEdificio.Name = "tbNomeEdificio";
             this.tbNomeEdificio.Size = new System.Drawing.Size(243, 20);
             this.tbNomeEdificio.TabIndex = 6;
+            this.tbNomeEdificio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNomeEdificio_KeyPress);
             // 
             // tbNomeRazao
             // 
@@ -555,6 +567,7 @@
             this.tbNomeRazao.Name = "tbNomeRazao";
             this.tbNomeRazao.Size = new System.Drawing.Size(360, 20);
             this.tbNomeRazao.TabIndex = 6;
+            this.tbNomeRazao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNomeRazao_KeyPress);
             // 
             // gbTipoImovel
             // 
@@ -637,6 +650,7 @@
             this.tbVendedor.Name = "tbVendedor";
             this.tbVendedor.Size = new System.Drawing.Size(100, 20);
             this.tbVendedor.TabIndex = 0;
+            this.tbVendedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbVendedor_KeyPress);
             // 
             // tabPlanoPagamento
             // 
@@ -832,6 +846,7 @@
             this.tbQtdPos.Name = "tbQtdPos";
             this.tbQtdPos.Size = new System.Drawing.Size(50, 20);
             this.tbQtdPos.TabIndex = 2;
+            this.tbQtdPos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbQtdPos_KeyPress);
             // 
             // tbBanco
             // 
@@ -839,6 +854,7 @@
             this.tbBanco.Name = "tbBanco";
             this.tbBanco.Size = new System.Drawing.Size(127, 20);
             this.tbBanco.TabIndex = 2;
+            this.tbBanco.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbBanco_KeyPress);
             // 
             // tbAgencia
             // 
@@ -846,6 +862,7 @@
             this.tbAgencia.Name = "tbAgencia";
             this.tbAgencia.Size = new System.Drawing.Size(85, 20);
             this.tbAgencia.TabIndex = 2;
+            this.tbAgencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbAgencia_KeyPress);
             // 
             // tbConta
             // 
@@ -853,6 +870,7 @@
             this.tbConta.Name = "tbConta";
             this.tbConta.Size = new System.Drawing.Size(221, 20);
             this.tbConta.TabIndex = 2;
+            this.tbConta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbConta_KeyPress);
             // 
             // tbNumeroCartao
             // 
@@ -860,6 +878,7 @@
             this.tbNumeroCartao.Name = "tbNumeroCartao";
             this.tbNumeroCartao.Size = new System.Drawing.Size(314, 20);
             this.tbNumeroCartao.TabIndex = 2;
+            this.tbNumeroCartao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNumeroCartao_KeyPress);
             // 
             // tbParcelas
             // 
@@ -867,6 +886,7 @@
             this.tbParcelas.Name = "tbParcelas";
             this.tbParcelas.Size = new System.Drawing.Size(65, 20);
             this.tbParcelas.TabIndex = 2;
+            this.tbParcelas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbParcelas_KeyPress);
             // 
             // tbTaxaAdesao
             // 
@@ -881,6 +901,7 @@
             this.tbQtdPre.Name = "tbQtdPre";
             this.tbQtdPre.Size = new System.Drawing.Size(54, 20);
             this.tbQtdPre.TabIndex = 2;
+            this.tbQtdPre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbQtdPre_KeyPress);
             // 
             // label21
             // 
@@ -1023,7 +1044,12 @@
             this.ClientSize = new System.Drawing.Size(825, 533);
             this.Controls.Add(this.label30);
             this.Controls.Add(this.tabControlContrato);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Contract";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Contrato";
             this.Load += new System.EventHandler(this.Contract_Load);
             this.tabControlContrato.ResumeLayout(false);

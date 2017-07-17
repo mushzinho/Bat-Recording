@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -250,6 +251,128 @@ namespace BatRecording
             {
                 MessageBox.Show(@"ERRO: Revise todos os campos com *");
             }
+        }
+
+
+        private void tbNomeRazao_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys) e.KeyChar == Keys.Back || (Keys)e.KeyChar == Keys.Space) return;
+            e.Handled = !char.IsLetter(e.KeyChar);
+        }
+
+        private void tbVendedor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Back || (Keys)e.KeyChar == Keys.Space) return;
+            e.Handled = !char.IsDigit(e.KeyChar);
+        }
+
+        private void tbCpfCnpj_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+            if ((Keys)e.KeyChar == Keys.Back || (Keys)e.KeyChar == Keys.Space || e.KeyChar == '.') return;
+            e.Handled = !char.IsDigit(e.KeyChar);
+        }
+
+        private void tbRGIncsEstRNE_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Back || (Keys)e.KeyChar == Keys.Space || e.KeyChar == '.') return;
+            e.Handled = !char.IsDigit(e.KeyChar);
+        }
+
+        private void tbNumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Back ) return;
+            e.Handled = !char.IsDigit(e.KeyChar);
+        }
+
+        private void tbEndereco_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Back || (Keys)e.KeyChar == Keys.Space) return;
+            e.Handled = !char.IsLetter(e.KeyChar);
+        }
+
+        private void tbBairro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Back || (Keys)e.KeyChar == Keys.Space) return;
+            e.Handled = !char.IsLetter(e.KeyChar);
+        }
+
+        private void tbComplemento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Back || (Keys)e.KeyChar == Keys.Space) return;
+            e.Handled = !char.IsLetter(e.KeyChar);
+        }
+
+        private void tbCondominio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Back || (Keys)e.KeyChar == Keys.Space) return;
+            e.Handled = !char.IsLetter(e.KeyChar);
+        }
+
+        private void tbCidade_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Back || (Keys)e.KeyChar == Keys.Space) return;
+            e.Handled = !char.IsLetter(e.KeyChar);
+        }
+
+        private void tbReferencia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Back || (Keys)e.KeyChar == Keys.Space) return;
+            e.Handled = !char.IsLetter(e.KeyChar);
+        }
+
+        private void tbUF_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Back || (Keys)e.KeyChar == Keys.Space) return;
+            e.Handled = !char.IsLetter(e.KeyChar);
+        }
+
+        private void tbNomeEdificio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Back || (Keys)e.KeyChar == Keys.Space) return;
+            e.Handled = !char.IsLetter(e.KeyChar);
+        }
+
+        private void tbQtdPre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Back || (Keys)e.KeyChar == Keys.Space) return;
+            e.Handled = !char.IsDigit(e.KeyChar);
+        }
+
+        private void tbQtdPos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Back || (Keys)e.KeyChar == Keys.Space) return;
+            e.Handled = !char.IsDigit(e.KeyChar);
+        }
+
+        private void tbNumeroCartao_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Back || (Keys)e.KeyChar == Keys.Space) return;
+            e.Handled = char.IsLetter(e.KeyChar);
+        }
+
+        private void tbAgencia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Back || (Keys)e.KeyChar == Keys.Space) return;
+            e.Handled = char.IsLetter(e.KeyChar);
+        }
+
+        private void tbConta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Back || (Keys)e.KeyChar == Keys.Space) return;
+            e.Handled = char.IsLetter(e.KeyChar);
+        }
+
+        private void tbBanco_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Back || (Keys)e.KeyChar == Keys.Space) return;
+            e.Handled = char.IsDigit(e.KeyChar);
+        }
+
+        private void tbParcelas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Back || (Keys)e.KeyChar == Keys.Space) return;
+            e.Handled = !char.IsDigit(e.KeyChar);
         }
     }
 }
