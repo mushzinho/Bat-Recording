@@ -73,35 +73,31 @@ namespace BatRecording
 
         private void Record_Click(object sender, EventArgs events)
         {
-           
-            if (!this._recording)
-            {
 
-                StartRecording();
-           
-                Contract contract = new Contract();
-                if( contract.ShowDialog() == DialogResult.OK)
-                {
-                    StopRecording();
-                    var saveFileHelper = new SaveFileHelper();
-                    string data = "Pablo Henrique:Pablo";
-                    saveFileHelper.ConvertWithFfmpegAndSave(contract.ClientName, contract.CpfCnpj, data);
-                    this.SaveFileToFtpServer("out.mp3", saveFileHelper.OutFileNameComplete);
-                    StreamWriter fr = new StreamWriter(File.OpenWrite("contrato.txt"));
-                    fr.Write(contract.TextToBeSaved);
-                    fr.Close();
-                    fr.Dispose();
-                    this.SaveFileToFtpServer("contrato.txt", "contrato.txt");
-                    //MessageBox.Show(contract.TextToBeSaved);
-                     MessageBox.Show("OK");
-                }
-              
+            StartRecording();
+
+            var contract = new Contract();
+            if (contract.ShowDialog() == DialogResult.OK)
+            {
+                StopRecording();
+
+                var saveFileHelper = new SaveFileHelper();
+                var data = "Pablo Henrique:Pablo";
+                saveFileHelper.ConvertWithFfmpegAndSave(contract.ClientName, contract.CpfCnpj, data);
+                SaveFileToFtpServer("out.mp3", saveFileHelper.OutFileNameComplete + ".mp3");
+                var fr = new StreamWriter(File.OpenWrite("contrato.txt"));
+                fr.Write(contract.TextToBeSaved);
+                fr.Close();
+                fr.Dispose();
+                SaveFileToFtpServer("contrato.txt", saveFileHelper.OutFileNameComplete + ".txt");
+                MessageBox.Show("OK");
             }
             else
             {
                 StopRecording();
-
             }
+              
+            
 
         }
 
@@ -111,7 +107,6 @@ namespace BatRecording
           
             var manageFtp = new ManageFtp();
             var client = manageFtp.Client;
-          //  var url = Path.GetFullPath(sourceFileName);
             var upload = client.UploadFile(inputFile, "/" + @remoteFilePath, FtpExists.NoCheck, true);
             client.Disconnect();
             return upload;

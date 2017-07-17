@@ -174,17 +174,17 @@ namespace BatRecording
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("Vendedor: " + tbVendedor.Text);
-            sb.AppendLine("Tipo de Pessoa: " + _rbTipoPessoa.Name);
+            sb.AppendLine("Tipo de Pessoa: " + _rbTipoPessoa.Text);
             sb.AppendLine("Nascimento: " + tbNascimento.Text);
-            sb.AppendLine("Sexo: " + _rbSexo.Name);
+            sb.AppendLine("Sexo: " + _rbSexo.Text);
             sb.AppendLine("Nome / Razão: " + tbNomeRazao.Text);
             sb.AppendLine("Email: " + tbEmail.Text);
             sb.AppendLine("Telefone Fixo: " + tbTelefoneFixo.Text);
             sb.AppendLine("Telefone Móvel: " + tbTelefoneMovel.Text);
-            sb.AppendLine("Estado Civel: " + _rbEstadoCivil.Name);
+            sb.AppendLine("Estado Civel: " + _rbEstadoCivil.Text);
             sb.AppendLine("CPF / CNPJ: " + tbCpfCnpj.Text);
             sb.AppendLine("RG / Insc Est / RNE: " + tbRGIncsEstRNE.Text);
-            sb.AppendLine("Tipo do Imóvel: " + _rbTipoImovel.Name);
+            sb.AppendLine("Tipo do Imóvel: " + _rbTipoImovel.Text);
             sb.AppendLine("Nome do Edifício: " + tbNomeEdificio.Text);
             sb.AppendLine("CEP: " + tbCep.Text);
             sb.AppendLine("Endereço: " + tbEndereco.Text);
@@ -203,12 +203,12 @@ namespace BatRecording
             {
                 if (radioButton.Checked)
                 {
-                    sb.AppendLine("Banda Larga: " + radioButton.Name);
+                    sb.AppendLine("Banda Larga: " + radioButton.Text);
                 }
 
             }
-            sb.AppendLine("Modelo TV: " + _rbModeloTv.Name);
-            sb.AppendLine("Forma de Pagamento: " + _rbFormaPagamento.Name);
+            sb.AppendLine("Modelo TV: " + _rbModeloTv.Text);
+            sb.AppendLine("Forma de Pagamento: " + _rbFormaPagamento.Text);
             sb.AppendLine("Número do Cartão: " + tbNumeroCartao.Text);
             sb.AppendLine("Validade: " + tbValidade.Text);
             sb.AppendLine("Agencia: " + tbAgencia.Text);
