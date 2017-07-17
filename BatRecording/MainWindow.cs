@@ -78,13 +78,24 @@ namespace BatRecording
             {
 
                 StartRecording();
-                /*
+           
                 Contract contract = new Contract();
                 if( contract.ShowDialog() == DialogResult.OK)
                 {
-                    MessageBox.Show(contract.TextToBeSaved);
+                    StopRecording();
+                    var saveFileHelper = new SaveFileHelper();
+                    string data = "Pablo Henrique:Pablo";
+                    saveFileHelper.ConvertWithFfmpegAndSave(contract.ClientName, contract.CpfCnpj, data);
+                    this.SaveFileToFtpServer("out.mp3", saveFileHelper.OutFileNameComplete);
+                    StreamWriter fr = new StreamWriter(File.OpenWrite("contrato.txt"));
+                    fr.Write(contract.TextToBeSaved);
+                    fr.Close();
+                    fr.Dispose();
+                    this.SaveFileToFtpServer("contrato.txt", "contrato.txt");
+                    //MessageBox.Show(contract.TextToBeSaved);
+                     MessageBox.Show("OK");
                 }
-                */
+              
             }
             else
             {
@@ -95,13 +106,13 @@ namespace BatRecording
         }
 
 
-        private bool SaveFileToFtpServer(string sourceFileName)
+        private bool SaveFileToFtpServer(string inputFile, string remoteFilePath)
         {
           
             var manageFtp = new ManageFtp();
             var client = manageFtp.Client;
-            var url = Path.GetFullPath(sourceFileName);
-            var upload = client.UploadFile(@url, "/" + @sourceFileName , FtpExists.NoCheck, true);
+          //  var url = Path.GetFullPath(sourceFileName);
+            var upload = client.UploadFile(inputFile, "/" + @remoteFilePath, FtpExists.NoCheck, true);
             client.Disconnect();
             return upload;
         }
@@ -154,13 +165,6 @@ namespace BatRecording
 
         private void StartRecording()
         {
-
-            this.NotifycationIcon.Visible = true;
-            this.NotifycationIcon.BalloonTipTitle = @"Bat Recording";
-            this.NotifycationIcon.BalloonTipText = "Gravando \nPara parar Pressione CTRL+ SHIT + P";
-            this.NotifycationIcon.BalloonTipIcon = ToolTipIcon.Info;
-            this.NotifycationIcon.ShowBalloonTip(2000);
-
             StartCapture(WavOut);
             ToggleRecordButton();
         }

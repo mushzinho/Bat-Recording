@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.RecordButton = new System.Windows.Forms.Button();
             this.statusTextBox = new System.Windows.Forms.TextBox();
             this.StatusOfRecording = new System.Windows.Forms.Label();
-            this.NotifycationIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
             // 
             // RecordButton
@@ -67,11 +65,6 @@
             this.StatusOfRecording.TabIndex = 2;
             this.StatusOfRecording.Text = "Status da Gravação: ";
             // 
-            // NotifycationIcon
-            // 
-            this.NotifycationIcon.Text = "NotifycationIcon";
-            this.NotifycationIcon.Visible = true;
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -99,7 +92,6 @@
         private System.Windows.Forms.Button RecordButton;
         private System.Windows.Forms.TextBox statusTextBox;
         private System.Windows.Forms.Label StatusOfRecording;
-        private System.Windows.Forms.NotifyIcon NotifycationIcon;
     }
 }
 

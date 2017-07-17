@@ -285,7 +285,7 @@
             this.gbEstadoCivil.Size = new System.Drawing.Size(250, 40);
             this.gbEstadoCivil.TabIndex = 6;
             this.gbEstadoCivil.TabStop = false;
-            this.gbEstadoCivil.Text = "Estado Civil:";
+            this.gbEstadoCivil.Text = "Estado Civil:*";
             // 
             // rbCasado
             // 
