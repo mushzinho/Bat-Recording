@@ -22,6 +22,7 @@ namespace BatRecording
         private RadioButton _rbTipoImovel;
         private RadioButton _rbFormaPagamento;
         private RadioButton _rbModeloTv;
+        private RadioButton _rbBandaLarga;
 
         public Contract()
         {
@@ -144,15 +145,23 @@ namespace BatRecording
             {
                 if (radioButton.Checked)
                 {
-                    hasSomeChecked = true;
                     _rbFormaPagamento = radioButton;
                     break;
                 }
 
             }
-            if (!hasSomeChecked) hasError = true;
-            hasSomeChecked = false;
 
+
+            //Banda Larga
+            foreach (var radioButton in this.gbBandaLarga.Controls.OfType<RadioButton>())
+            {
+                if (radioButton.Checked)
+                {
+                    _rbBandaLarga = radioButton;
+                    break;
+                }
+
+            }
 
             //Modelo TV
             foreach (var radioButton in this.gbModeloTV.Controls.OfType<RadioButton>())
@@ -167,6 +176,45 @@ namespace BatRecording
             }
             if (!hasSomeChecked) hasError = true;
             hasSomeChecked = false;
+
+            //Cartao Vazio
+            if (_rbFormaPagamento != null)
+            {
+
+                if (_rbFormaPagamento.Name == "rbCartaoCredito" && (string.IsNullOrEmpty(tbNumeroCartao.Text) || !tbValidade.MaskCompleted ))
+                {
+                    MessageBox.Show(@"Número do Cartão e validade obrigatórios para a opção selecionada.");
+                    hasError = true;
+                }
+
+
+                //Deb em Conta
+
+                if (_rbFormaPagamento.Name == "rbDebitoCc" &&
+                    (string.IsNullOrEmpty(tbAgencia.Text) || string.IsNullOrEmpty(tbConta.Text) ||
+                     string.IsNullOrEmpty(tbBanco.Text)))
+                {
+                    hasError = true;
+                    MessageBox.Show(@"Agência, Conta e Banco obrigatórios para a opção selecionada.");
+                }
+
+
+            }
+            else
+            {
+                MessageBox.Show(@"Escolha uma forma de pagamento.");
+                hasError = true;
+            }
+
+            if (_rbBandaLarga == null)
+            {
+                if (string.IsNullOrEmpty(tbPrePago.Text) && string.IsNullOrEmpty(tbPosPago.Text))
+                {
+                    MessageBox.Show(@"Você deve informar as opções de plano.");
+                    hasError = true;
+                }
+
+            }
 
             return !hasError;
         }
@@ -234,7 +282,7 @@ namespace BatRecording
             }
             else
             {
-                MessageBox.Show(@"ERRO: Revise todos os campos com *");
+                MessageBox.Show(@"ERRO: Revise todos os campos com * ");
             }
         }
 
@@ -249,7 +297,7 @@ namespace BatRecording
             }
             else
             {
-                MessageBox.Show(@"ERRO: Revise todos os campos com *");
+                MessageBox.Show(@"ERRO: Revise todos os campos com * e as mensagens de erro.");
             }
         }
 
