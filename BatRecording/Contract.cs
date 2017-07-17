@@ -189,14 +189,15 @@ namespace BatRecording
             sb.AppendLine("CEP: " + tbCep.Text);
             sb.AppendLine("Endereço: " + tbEndereco.Text);
             sb.AppendLine("Bairro: " + tbBairro.Text);
+            sb.AppendLine("N°: " + tbNumero.Text);
             sb.AppendLine("Complemento: " + tbComplemento.Text);
             sb.AppendLine("Condomínio: " + tbCondominio.Text);
             sb.AppendLine("Cidade: " + tbCidade.Text);
             sb.AppendLine("Pto. de Referência: " + tbReferencia.Text);
+            sb.AppendLine("UF: " + tbUF.Text);
             sb.AppendLine("Pré-Pago: " + tbPrePago.Text);
             sb.AppendLine("Qtd Pré-Pago: " + tbQtdPre.Text);
             sb.AppendLine("Pós-Pago: " + tbPosPago.Text);
-            sb.AppendLine("Qtd Pós-Pago: " + tbQtdPos.Text);
             sb.AppendLine("Qtd Pós-Pago: " + tbQtdPos.Text);
 
             foreach (var radioButton in this.gbBandaLarga.Controls.OfType<RadioButton>())
