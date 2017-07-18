@@ -248,7 +248,14 @@ namespace BatRecording
             sb.AppendLine("Qtd Pré-Pago: " + tbQtdPre.Text);
             sb.AppendLine("Pós-Pago: " + tbPosPago.Text);
             sb.AppendLine("Qtd Pós-Pago: " + tbQtdPos.Text);
-            sb.AppendLine("Banda Larga: " + _rbBandaLarga.Text);
+            if (_rbBandaLarga != null)
+            {
+                sb.AppendLine("Banda Larga: " + _rbBandaLarga.Text);
+            }
+            else
+            {
+                sb.AppendLine("Banda Larga: ");
+            }
             sb.AppendLine("Modelo TV: " + _rbModeloTv.Text);
             sb.AppendLine("Forma de Pagamento: " + _rbFormaPagamento.Text);
             sb.AppendLine("Número do Cartão: " + tbNumeroCartao.Text);

@@ -9,12 +9,12 @@ C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\b
 C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\bin\Release\NReco.VideoConverter.xml
 C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\obj\Release\BatRecording.Admin.resources
 C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\obj\Release\BatRecording.AdminPass.resources
+C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\obj\Release\BatRecording.Contract.resources
 C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\obj\Release\BatRecording.LoginForm.resources
 C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\obj\Release\BatRecording.MainWindow.resources
 C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\obj\Release\BatRecording.Properties.Resources.resources
-C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\obj\Release\BatRecording.SaveAudioDialog.resources
 C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\obj\Release\BatRecording.csproj.GenerateResource.Cache
 C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\obj\Release\Bat Recording.exe
 C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\obj\Release\Bat Recording.pdb
 C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\obj\Release\BatRecording.csprojResolveAssemblyReference.cache
-C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\obj\Release\BatRecording.Contract.resources
+C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\obj\Release\BatRecording.Loading.resources

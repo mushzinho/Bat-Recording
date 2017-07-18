@@ -27,7 +27,6 @@ namespace BatRecording
                 if (result)
                 {
                     this.AuthenticatedEmployer = employer.AuthenticatedEmployer;
-                    MessageBox.Show(@"Logado com sucesso");
                     this.DialogResult = DialogResult.OK;
                 }
                 else
@@ -48,6 +47,14 @@ namespace BatRecording
             if (adminpass.ShowDialog() == DialogResult.OK)
             {
                 MessageBox.Show("OK");
+            }
+        }
+
+        private void LoginForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys) e.KeyChar == Keys.Enter)
+            {
+                this.buttonLogin_Click(this, EventArgs.Empty);
             }
         }
     }

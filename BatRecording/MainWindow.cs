@@ -83,22 +83,42 @@ namespace BatRecording
             {
                 StopRecording();
 
+                Loading loading = new Loading();
+                loading.Show(this);
+
                 var saveFileHelper = new SaveFileHelper();
                 saveFileHelper.ConvertWithFfmpegAndGetUrl(contract.ClientName, contract.CpfCnpj, _operatorData);
 
-                SaveFileToFtpServer("out.mp3", saveFileHelper.OutFileNameComplete + ".mp3");
+                bool saveAudio = SaveFileToFtpServer("out.mp3", saveFileHelper.OutFileNameComplete + ".mp3");
                 var fr = new StreamWriter(File.OpenWrite("contrato.txt"));
                 fr.Write(contract.TextToBeSaved);
                 fr.Close();
                 fr.Dispose();
-                SaveFileToFtpServer("contrato.txt", saveFileHelper.OutFileNameComplete + ".txt");
-                this.CleanFiles();
-                MessageBox.Show(@"Salvo com sucesso.");
+                bool saveContract = SaveFileToFtpServer("contrato.txt", saveFileHelper.OutFileNameComplete + ".txt");
+                
+
+                if (saveAudio && saveContract)
+                {
+                    MessageBox.Show(@"Dados gravados com sucesso.");
+                    this.CleanFiles();
+                    loading.Close();
+                    loading.Dispose();
+                }
+                else
+                {
+                    MessageBox.Show(@"Dados NÃO GRAVADOS no servidor.");
+                    loading.Close();
+                    loading.Dispose();
+                }
+                
             }
             else
             {
                 StopRecording();
             } 
+
+            contract.Close();
+            contract.Dispose();
 
         }
 

@@ -17,3 +17,4 @@ C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\o
 C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\obj\Debug\BatRecording.Admin.resources
 C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\obj\Debug\BatRecording.AdminPass.resources
 C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\obj\Debug\BatRecording.Contract.resources
+C:\Users\Pablo\Documents\visual studio 2015\Projects\BatRecording\BatRecording\obj\Debug\BatRecording.Loading.resources
